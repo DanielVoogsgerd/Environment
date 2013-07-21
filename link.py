@@ -30,7 +30,7 @@ def main():
 	    # Split the symlink into a file and destination
             s = symlink.split( ' => ' )
 
-	    Get the absolute path without the home directory refered to as ~. (Bash convention)
+	    # Get the absolute path, without the home directory refered to as ~. (Bash convention)
             file = os.path.abspath( os.path.expanduser( os.path.join(baseDir, s[0]) ) )
             dest = os.path.abspath( os.path.expanduser( s[1] ) )
 
@@ -47,5 +47,6 @@ def main():
                 print ('--------------------')
 
 
+# Call the middle function
 if __name__ == "__main__":
 	    main()
