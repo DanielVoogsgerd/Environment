@@ -10,16 +10,30 @@ Bundle 'gmarik/vundle'
 
 " Personal bundles
 Bundle 'tpope/vim-fugitive'
-Bundle 'tpope/repeat'
+Bundle 'tpope/vim-repeat'
 Bundle 'Lokaltog/vim-easymotion'
 Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
 Bundle 'L9'
 Bundle 'FuzzyFinder'
-Bundle 'EasyClip'
+Bundle 'svermeulen/vim-easyclip'
 Bundle 'Lokaltog/vim-powerline'
 Bundle 'Align'
-Bundle 'Surround'
-
+Bundle 'tpope/vim-surround'
+Bundle 'altercation/vim-colors-solarized'
+Bundle 'chriskempson/base16-vim'
 
 " End bundles
 filetype plugin indent on
+
+set t_Co=256
+
+syntax on
+set background=dark
+colorscheme solarized
+" colorscheme solarized
+
+let s:tabwidth=4
+
+
+
+
