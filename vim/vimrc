@@ -1,0 +1,25 @@
+set nocompatible               " be iMproved
+filetype off                   " required!
+
+set rtp+=~/.vim/bundle/vundle
+call vundle#rc()
+
+" let Vundle manage Vundle
+" required! 
+Bundle 'gmarik/vundle'
+
+" Personal bundles
+Bundle 'tpope/vim-fugitive'
+Bundle 'tpope/repeat'
+Bundle 'Lokaltog/vim-easymotion'
+Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
+Bundle 'L9'
+Bundle 'FuzzyFinder'
+Bundle 'EasyClip'
+Bundle 'Lokaltog/vim-powerline'
+Bundle 'Align'
+Bundle 'Surround'
+
+
+" End bundles
+filetype plugin indent on
