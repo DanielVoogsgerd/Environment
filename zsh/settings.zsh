@@ -23,6 +23,5 @@ for config_file ($ZSH/lib/*.zsh(N)); do
 	  source $config_file
 done
 
-echo $config_file
 unset config_file
 
