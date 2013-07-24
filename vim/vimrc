@@ -30,19 +30,23 @@ set t_Co=256
 syntax on
 set background=dark
 colorscheme solarized
-" colorscheme solarized
 
 let s:tabwidth=4
 
-if (!has('gui_running'))
-	" Enable Terminal transparency
-	let g:solarized_termtrans=1
+let g:solarized_termtrans=1
+let g:solarized_degrade=0
+let g:solarized_bold=1
+let g:solarized_italic=1
+let g:solarized_underline=1
+let g:solarized_visibility="normal"
 
-	if (&t_Co >= 256 || $TERM == 'xterm-256color')
-		" Do nothing, it handles itself.
-	else
-		" Make Solarized use 16 colors for Terminal support
-		let g:solarized_termcolors=16
-	endif
+
+hi clear
+if exists("syntax_on")
+	syntax reset
 endif
+let colors_name = "solarized"
 
+syntax on
+set background=dark
+colorscheme solarized
