@@ -4,52 +4,136 @@
 import glob, os, sys
 
 def main():
-    # Look for symlinkfiles inside the directories
-    symlinkFiles = glob.glob('./*/.symlinks')
+    args = sys.argv
 
-    # Loop through the symlinkfiles and parse them
-    for symlinkFile in symlinkFiles:
-        # Get the absolute path for the symlink (Bash convention)
-        path = os.path.abspath(symlinkFile)
+    if len(args) > 1:
+        print(args[1])
+        test = symlink()
+        test.scan()
+        test.parse()
+        test.filter(args[1])
+
+
+
+    else:
+        symlink.help()
         
-	# Get the absolute base path for the directory
-        baseDir = os.path.split (path)[0] + '/'
 
-	# Print the path (Can't be bothered to remove some debugging stuff right now, since I'm still 
-        print (path)
+class symlink:
 
-	# Open the symlink file
-        content = str(open(path, 'r').read())
+    def scan(self):
 
-	# Split the big blob of text into seperate rule we can parse
-        symlinks = content.split( '\n' )[0:-1]
+        # Look for symlinkfiles inside the directories
+        symlinkFiles = glob.glob('./*/.symlinks')
 
-	# Loop through the rules and parse them
-        for symlink in symlinks:
-	    # Split the symlink into a file and destination
-            s = symlink.split(' => ')
+        paths = []
 
-	    # Get the absolute path, without the home directory refered to as ~. (Bash convention)
-            file = os.path.abspath(os.path.expanduser(os.path.join(baseDir, s[0])))
-            dest = os.path.abspath(os.path.expanduser(s[1]))
+        # Loop through the symlinkfiles and parse them
+        for symlinkFile in symlinkFiles:
+            
+            # Get the absolute path for the symlink (Bash convention)
+            path = os.path.abspath(symlinkFile)
 
-	    # If the destination doesn't exist yet, create the symlink
-            if not os.path.lexists(dest):
-	    	# Debug code
-                print ('Linking ' + file + ' to ' + dest)
+            # Print the path (Can't be bothered to remove some debugging stuff right now, since I'm still 
+            #print(path)
+            paths.append(path)
 
-		# Finally create the symlink
-                os.symlink(file, dest) 
+        # Save paths
+        self.paths = paths
+
+        return (paths)
+
+    def parse(self, paths=False):
+        
+        # Check if there are paths provided
+        if not paths:
+            paths = self.paths
+
+        self.links = []
+
+
+        # Loop over the paths
+        for path in paths:
+
+            # Get the absolute base path for the directory
+            baseDir = os.path.split (path)[0] + '/'
+
+            # Open the symlink file
+            content = open(path, 'r').read()
+
+            # Split the big blob of text into seperate rule we can parse
+            symlinks = content.split('\n')[0:-1]
+
+
+            # Loop through the rules and parse them
+            for symlink in symlinks:
+                users = []
+                if symlink.find('|') != -1:
+                    s = symlink.split('|')
+                    print (s)
+                    link = s[0]
+                    
+                    if s[1].find(',') != -1:
+                        for user in s[1].split(','):
+                            users.append(user)
+
+                else:
+                    link = symlink
+
+
+                if link.find('=>'):
+                    
+                    # Split the symlink into a file and destination
+                    s = link.split('=>')
+
+                    # Get the absolute path, without the home directory refered to as ~. (Bash convention)
+                    file = os.path.abspath(os.path.expanduser(os.path.join(baseDir, s[0])))
+                    dest = os.path.abspath(os.path.expanduser(s[1]))
+
+                    self.links.append((file, dest, users))
+
+        return self.links
+
+    def filter(self, user):
+        links = []
+        for link in self.links:
+            if user in link[2] or not len(link[2]) > 0:
+                links.append(link)
+                print('Yes')
             else:
-	        # Throw a nice error
-                print ('File already exists')
-                print ('--------------------')
+                print('No')
 
-def help:
-	print ('Lorem')
+            print(link)
+
+        self.links = links
+
+        print (self.links)
+        
+        return links
+
+
+    def link(self):
+
+        # If the destination doesn't exist yet, create the symlink
+        if not os.path.lexists(dest):
+
+            # Debug code
+            print ('Linking ' + file + ' to ' + dest)
+
+            # Finally create the symlink
+            os.symlink(file, dest) 
+        else:
+
+            # Throw a nice error
+            print ('File already exists')
+            print ('--------------------')
+
+
+    def help():
+        print ('Lorem')
 
 
 # Call the middle function
 if __name__ == "__main__":
-	    main()
+        main()
 
