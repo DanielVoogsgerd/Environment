@@ -67,15 +67,23 @@ class symlink:
 
             # Loop through the rules and parse them
             for symlink in symlinks:
+
                 users = []
+
+                # Check if there is an "|" indicating that there are users
                 if symlink.find('|') != -1:
+
+                    # Split the user part of
                     s = symlink.split('|')
+
+                    # Debug code
                     print (s)
+
                     link = s[0]
                     
-                    if s[1].find(',') != -1:
-                        for user in s[1].split(','):
-                            users.append(user.lower)
+                    # Loop over all users and add them to the array
+                    for user in s[1].split(','):
+                        users.append(user.lower())
 
                 else:
                     link = symlink
@@ -97,7 +105,7 @@ class symlink:
     def filter(self, user):
         links = []
         for link in self.links:
-            if user.lower in link[2] or not len(link[2]) > 0:
+            if user.lower() in link[2] or not len(link[2]) > 0:
                 links.append(link)
                 print('Yes')
             else:
@@ -107,7 +115,7 @@ class symlink:
 
         self.links = links
 
-        print (self.links)
+        print(self.links)
         
         return links
 
