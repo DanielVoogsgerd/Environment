@@ -38,7 +38,7 @@ class symlink:
             #print(path)
             paths.append(path)
 
-        # Save paths
+        # Save pathsIf y
         self.paths = paths
 
         return (paths)
