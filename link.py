@@ -75,7 +75,7 @@ class symlink:
                     
                     if s[1].find(',') != -1:
                         for user in s[1].split(','):
-                            users.append(user)
+                            users.append(user.lower)
 
                 else:
                     link = symlink
@@ -97,7 +97,7 @@ class symlink:
     def filter(self, user):
         links = []
         for link in self.links:
-            if user in link[2] or not len(link[2]) > 0:
+            if user.lower in link[2] or not len(link[2]) > 0:
                 links.append(link)
                 print('Yes')
             else:
