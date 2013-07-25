@@ -7,7 +7,6 @@ def main():
     args = sys.argv
 
     if len(args) > 1:
-        print(args[1])
         test = symlink()
         test.scan()
         test.parse()
@@ -77,13 +76,11 @@ class symlink:
                     s = symlink.split('|')
 
                     # Debug code
-                    print (s)
-
                     link = s[0]
                     
                     # Loop over all users and add them to the array
                     for user in s[1].split(','):
-                        users.append(user.lower())
+                        users.append( user.lower() )
 
                 else:
                     link = symlink
@@ -107,11 +104,6 @@ class symlink:
         for link in self.links:
             if user.lower() in link[2] or not len(link[2]) > 0:
                 links.append(link)
-                print('Yes')
-            else:
-                print('No')
-
-            print(link)
 
         self.links = links
 
