@@ -33,8 +33,6 @@ class symlink:
             # Get the absolute path for the symlink (Bash convention)
             path = os.path.abspath(symlinkFile)
 
-            # Print the path (Can't be bothered to remove some debugging stuff right now, since I'm still 
-            #print(path)
             paths.append(path)
 
         # Save pathsIf y
@@ -121,7 +119,8 @@ class symlink:
             print ('Linking ' + file + ' to ' + dest)
 
             # Finally create the symlink
-            os.symlink(file, dest) 
+            os.symlink(file, dest)
+
         else:
 
             # Throw a nice error
