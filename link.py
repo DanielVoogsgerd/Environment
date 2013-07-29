@@ -11,6 +11,7 @@ def main():
         test.scan()
         test.parse()
         test.filter(args[1])
+        test.link()
 
 
 
@@ -90,8 +91,8 @@ class symlink:
                     s = link.split('=>')
 
                     # Get the absolute path, without the home directory refered to as ~. (Bash convention)
-                    file = os.path.abspath(os.path.expanduser(os.path.join(baseDir, s[0])))
-                    dest = os.path.abspath(os.path.expanduser(s[1]))
+                    file = os.path.abspath(os.path.expanduser(os.path.join(baseDir, s[0].strip())))
+                    dest = os.path.abspath(os.path.expanduser(s[1].strip()))
 
                     self.links.append((file, dest, users))
 
@@ -104,28 +105,33 @@ class symlink:
                 links.append(link)
 
         self.links = links
+   
+    def link(self, links=False):
 
-        print(self.links)
-        
-        return links
+        if not links:
+            links = self.links
 
+        for link in links:
 
-    def link(self):
+            file = link[0]
+            dest = link[1]
 
-        # If the destination doesn't exist yet, create the symlink
-        if not os.path.lexists(dest):
 
             # Debug code
             print ('Linking ' + file + ' to ' + dest)
 
-            # Finally create the symlink
-            os.symlink(file, dest)
+            # If the destination doesn't exist yet, create the symlink
+            if not os.path.lexists(dest):
 
-        else:
+                # Finally create the symlink
+                os.symlink(file, dest)
+                print ('YAY')
 
-            # Throw a nice error
-            print ('File already exists')
-            print ('--------------------')
+            else:
+
+                # Throw a nice error
+                print ('File already exists')
+                print ('--------------------')
 
 
     def help():
