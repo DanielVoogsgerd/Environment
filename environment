@@ -2,10 +2,13 @@ cd ~
 if [ -d "$HOME/Environment/.git/" ]; then
 	git clone https://github.com/DanielVoogsgerd/dotfiles.git Environment
 	cd Environment
+	git submodule init
 else
 	cd Environment
 	git pull
 fi
+git submodule update
+
 
 python link.py Server
 
