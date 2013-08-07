@@ -1,4 +1,4 @@
 *.swp
 .*.swp
 
-vim/vim/bundle/*
+bundle/
