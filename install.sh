@@ -19,8 +19,8 @@ yum --enablerepo=remi -y install puppet
 # Set a progress bar in the Curl config
 echo progress-bar >> ~/.curlrc
 
-su - daniel -c="curl http://download.realiseweb.nl/init.pp | bash"
+su - daniel -c="curl http://download.realiseweb.nl/init.pp | puppet"
 
 echo "Done installing the important stuff"
 
-su - daniel -c="curl http://download.realiseweb.nl/environement | bash"
+su - daniel -c="curl http://download.realiseweb.nl/environment | bash"
