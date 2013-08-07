@@ -1,0 +1,7 @@
+[submodule "vcs"]
+	path = zsh/vcs
+	url = git://github.com/yonchu/zsh-vcs-prompt.git
+
+[submodule "z"]
+	path = zsh/z
+	url = git://github.com/rupa/z.git
