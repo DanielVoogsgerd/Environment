@@ -56,6 +56,7 @@
         <value type="string" value="manjaro-settings-manager-daemon"/>
         <value type="string" value="networkmanager applet"/>
         <value type="string" value="systray icon"/>
+        <value type="string" value="skype"/>
         <value type="string" value="steam"/>
         <value type="string" value="orage"/>
         <value type="string" value="do"/>

@@ -125,13 +125,15 @@ class symlink:
 
                 # Finally create the symlink
                 os.symlink(file, dest)
-                print ('YAY')
+                print ('Symlink created!')
 
             else:
 
                 # Throw a nice error
                 print ('File already exists')
-                print ('--------------------')
+            
+
+            print ('--------------------')
 
 
     def help():
