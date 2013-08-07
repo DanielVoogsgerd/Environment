@@ -1,3 +1,5 @@
+echo progress-bar >> ~/.curlrc
+
 cd ~
 if [ -d "$HOME/Environment/.git/" ]; then
 	git clone https://github.com/DanielVoogsgerd/dotfiles.git Environment
@@ -14,3 +16,5 @@ python link.py Server
 
 curl https://raw.github.com/creationix/nvm/master/install.sh | sh
 \curl -L https://get.rvm.io | bash -s stable
+
+
