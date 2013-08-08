@@ -6,4 +6,4 @@ vim/vim/bundle/
 vim/vim/undodir/
 vim/vim/tmpdir/
 
-!vim/vim/bundle/vundle/
+!vim/vim/bundle/vundle/*
