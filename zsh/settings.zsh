@@ -20,7 +20,7 @@ setopt PUSHD_MINUS
 
 # Defaults
 EDITOR="vim"
-VISUAL="subl"
+VISUAL="subl3"
 GIT_EDITOR="vim"
 
 export EDITOR VISUAL GIT_EDITOR
