@@ -1,5 +1,3 @@
-echo progress-bar >> ~/.curlrc
-
 cd ~
 if [ -d "$HOME/Environment/.git/" ]; then
 	git clone https://github.com/DanielVoogsgerd/dotfiles.git Environment
