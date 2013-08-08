@@ -7,8 +7,6 @@ ZSH=$HOME/Environment/zsh
 for file in $ZSH/lib/*.zsh; do
 	[ -r "$file" ] && source "$file"
 done
-
-
 unset file
 
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
