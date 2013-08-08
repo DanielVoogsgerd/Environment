@@ -2,7 +2,7 @@
 .*.swp
 
 vim/vim/custom/configs.vim
-vim/vim/bundle/
+vim/vim/bundle/*
 vim/vim/undodir/
 vim/vim/tmpdir/
 
