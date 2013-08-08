@@ -1,7 +1,12 @@
 # Path to your oh-my-zsh configuration.
+ENVIRONMENT=$HOME/Environment
 ZSH=$HOME/Environment/zsh
 
-for file in $ZSH/{init,settings,prompt}.zsh; do
+[ -r "$ZSH/settings.zsh" ] && source "$ZSH/settings.zsh"
+
+for file in $ZSH/lib/*.zsh; do
 	[ -r "$file" ] && source "$file"
 done
+
+
 unset file

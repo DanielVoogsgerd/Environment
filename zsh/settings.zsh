@@ -14,14 +14,4 @@ setopt CORRECT
 setopt GLOB_COMPLETE
 setopt PUSHD_MINUS
 
-zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}' \
-	    'r:|[._-]=* r:|=*' 'l:|=* r:|=*'
-
-source $ZSH/vcs/zshrc.sh
-
-for config_file ($ZSH/lib/*.zsh(N)); do
-	  source $config_file
-done
-
-unset config_file
 
