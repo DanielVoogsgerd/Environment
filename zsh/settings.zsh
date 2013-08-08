@@ -15,3 +15,9 @@ setopt GLOB_COMPLETE
 setopt PUSHD_MINUS
 
 
+# Defaults
+EDITOR="vim"
+VISUAL="subl"
+GIT_EDITOR="vim"
+
+export EDITOR VISUAL GIT_EDITOR
