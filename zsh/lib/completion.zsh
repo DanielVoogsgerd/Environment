@@ -1,4 +1,3 @@
-
 # Autocomplete {{{1
 # fixme - the load process here seems a bit bizarre
 
