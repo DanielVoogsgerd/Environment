@@ -1,5 +1,5 @@
 cd ~
-if [ -d "$HOME/Environment/.git/" ]; then
+if [ ! -d "$HOME/Environment/.git/" ]; then
 	git clone https://github.com/DanielVoogsgerd/dotfiles.git Environment
 	cd Environment
 	git submodule init
