@@ -1,8 +1,9 @@
 alias "$USER"="cd /home/$USER/"
 
-alias la="ls -lAh"
+alias ls="ls --color=auto -h -F"
+alias la="ls -lA"
 alias lsa="ls -la"
-alias l="ls -lah"
+alias l="ls -la"
 
 alias ".."="cd ../"
 alias "..."="cd ../../"
