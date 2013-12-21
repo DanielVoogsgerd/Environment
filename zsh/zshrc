@@ -2,6 +2,10 @@
 ENVIRONMENT=$HOME/Environment
 ZSH=$HOME/Environment/zsh
 
+cd $ENVIRONMENT
+git pull > /dev/null
+cd ~
+
 [ -r "$ZSH/settings.zsh" ] && source "$ZSH/settings.zsh"
 
 for file in $ZSH/lib/*.zsh; do
