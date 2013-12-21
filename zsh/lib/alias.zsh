@@ -5,6 +5,8 @@ alias la="ls -lA"
 alias lsa="ls -la"
 alias l="ls -la"
 
+alias cl="clear"
+
 alias ".."="cd ../"
 alias "..."="cd ../../"
 alias "...."="cd ../../../"

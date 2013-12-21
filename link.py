@@ -13,8 +13,6 @@ def main():
         test.filter(args[1])
         test.link()
 
-
-
     else:
         symlink.help()
         
@@ -136,7 +134,7 @@ class symlink:
             print ('--------------------')
 
 
-    def help():
+    def help(self):
         print ('Lorem')
 
 
