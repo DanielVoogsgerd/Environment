@@ -9,3 +9,6 @@
 [submodule "vundle"]
 	path = vim/vim/bundle/vundle
 	url = git://github.com/gmarik/vundle.git
+[submodule "wp-cli"]
+	path = wp-cli
+	url = git@github.com:wp-cli/wp-cli.git
