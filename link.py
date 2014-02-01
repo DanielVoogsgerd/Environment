@@ -5,17 +5,15 @@ import glob, os, sys
 
 def main():
     args = sys.argv
+    test = symlink()
+    test.scan()
+    test.parse()
 
     if len(args) > 1:
-        test = symlink()
-        test.scan()
-        test.parse()
         test.filter(args[1])
-        test.link()
 
-    else:
-        symlink.help()
-        
+    test.link() 
+
 
 class symlink:
 
@@ -114,21 +112,24 @@ class symlink:
             file = link[0]
             dest = link[1]
 
-
             # Debug code
             print ('Linking ' + file + ' to ' + dest)
 
             # If the destination doesn't exist yet, create the symlink
-            if not os.path.lexists(dest):
-
-                # Finally create the symlink
-                os.symlink(file, dest)
-                print ('Symlink created!')
-
-            else:
+            if os.path.lexists(dest):
 
                 # Throw a nice error
                 print ('File already exists')
+
+            elif not os.path.exists(file):
+                print ("The file you're trying to link doesn't exist")
+
+            else:
+                # Finally create the symlink
+                print ('Linking ' + file + ' to ' + dest)
+                os.symlink(file, dest)
+                print ('Symlink created!')
+
             
 
             print ('--------------------')
