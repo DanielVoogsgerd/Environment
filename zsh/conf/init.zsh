@@ -6,4 +6,3 @@ if [ -f $HOME/.nvm/nvm.sh ]; then
 fi
 . $ENVIRONMENT/zsh/z/z.sh
 
-source $ZSH/wp-cli/utils/wp-completion.bash

@@ -3,7 +3,14 @@ ENVIRONMENT=$HOME/Environment
 ZSH=$ENVIRONMENT/zsh
 
 cd $ENVIRONMENT
-git pull > /dev/null
+if [ -z "`git status -uno | sed -n 2p | grep up-to-date`" ]; then
+	echo "There is an update in your environment"
+	echo "Lemme pull that shit"
+	git pull -ff > /dev/null
+else
+	echo "There are no updates for your environment"
+fi
+
 cd ~
 
 [ -r "$ZSH/settings.zsh" ] && source "$ZSH/settings.zsh"

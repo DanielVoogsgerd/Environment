@@ -24,3 +24,5 @@ VISUAL="subl3"
 GIT_EDITOR="vim"
 
 export EDITOR VISUAL GIT_EDITOR
+
+export PATH=$ENVIRONMENT/path:$PATH
