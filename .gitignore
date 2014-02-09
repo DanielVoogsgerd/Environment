@@ -1,7 +1,7 @@
 *.swp
 .*.swp
 
-zsh/cache
+zsh/cache/*
 
 vim/vim/custom/configs.vim
 vim/vim/bundle/*
