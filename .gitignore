@@ -1,6 +1,8 @@
 *.swp
 .*.swp
 
+zsh/cache
+
 vim/vim/custom/configs.vim
 vim/vim/bundle/*
 vim/vim/undodir/
