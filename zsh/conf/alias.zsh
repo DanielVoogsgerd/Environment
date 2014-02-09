@@ -20,3 +20,6 @@ alias n="touch"
 alias clip="xclip -sel clip"
 alias c='pygmentize -O style=monokai -f console256 -g'
 alias ':q'='exit'
+
+alias grep="grep --exclude-dir='.svn' --exclude-dir='.git' --color=auto"
+alias grepr="grep -rnH"
