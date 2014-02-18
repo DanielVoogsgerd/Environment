@@ -23,7 +23,7 @@ EDITOR="vim"
 VISUAL="subl3"
 GIT_EDITOR="vim"
 
-export LANG="en_US.UTF-8"
+export LANG="en_GB.UTF-8"
 export EDITOR VISUAL GIT_EDITOR
 
 export PATH=$ENVIRONMENT/path:$PATH
