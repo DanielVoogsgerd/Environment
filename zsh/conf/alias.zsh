@@ -12,7 +12,10 @@ alias "..."="cd ../../"
 alias "...."="cd ../../../"
 alias "....."="cd ../../../../"
 alias "......"="cd ../../../../../"
+alias "......."="cd ../../../../../"
 
+# Git aliasses
+alias g="git"
 
 alias s="subl3"
 alias v="vim"
