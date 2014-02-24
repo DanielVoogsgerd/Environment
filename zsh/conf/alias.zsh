@@ -18,6 +18,8 @@ alias "......."="cd ../../../../../"
 alias g="git"
 
 alias s="subl3"
+alias t="tree"
+alias d="tree -d"
 alias v="vim"
 alias n="touch"
 alias clip="xclip -sel clip"
