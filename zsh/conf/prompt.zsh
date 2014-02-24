@@ -11,7 +11,7 @@ else
 	PROMPT=$'%{${fg[blue]}%}%n'
 fi
 PROMPT+='%{${fg[blue]}%}@'
-if [[ "$SSH_CONNECTED_HOST" == ":0" ]]; then
+if [[ "$SSH_CONNECTED_HOST" == ":0" || "$SSH_CONNECTED_HOST" == ":0.0" ]]; then
 	PROMPT+='%{${fg[blue]}%}%m'
 else
 	PROMPT+='%{${fg[red]}%}%m'
