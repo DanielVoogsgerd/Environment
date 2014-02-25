@@ -1,7 +1,7 @@
 source $ZSH/vcs/zshrc.sh
 
 SSH_CONNECTED_HOST=`who am i | awk -F"[()]" '{print $2}'`
-PROMPT=$'%{${fg_bold[white]}%}'
+PROMPT=$''
 setopt PROMPT_SUBST
 if [[ "$USER" == "root" ]]; then
 	PROMPT+='%{${fg[red]}%}%n'
