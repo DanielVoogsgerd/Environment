@@ -28,3 +28,5 @@ alias ':q'='exit'
 
 alias grep="grep --exclude-dir='.svn' --exclude-dir='.git' --color=auto"
 alias grepr="grep -rnH"
+
+alias cp="rsync -aP"
