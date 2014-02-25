@@ -19,9 +19,9 @@ setopt PUSHD_MINUS
 
 
 # Defaults
-EDITOR="vim"
+EDITOR="nano"
 VISUAL="subl3"
-GIT_EDITOR="vim"
+GIT_EDITOR="nano"
 
 export LANG="en_GB.UTF-8"
 export EDITOR VISUAL GIT_EDITOR
