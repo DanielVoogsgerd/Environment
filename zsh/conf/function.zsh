@@ -29,7 +29,7 @@ function compress {
 	fi
 }
 
-sshmount() {
+function sshmount() {
 	if [ -n "$1" ]; then
 		string=$(echo "$1"| tr '[:upper:]' '[:lower:]') 
 		mkdir -p ~/Servers/"$string"
