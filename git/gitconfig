@@ -1,0 +1,38 @@
+[advice]
+	detachedHead = true
+	statusHints = false
+[alias]
+	rev-name = name-rev --name-only
+	on-branch = !~/shell/git/on-branch
+	track = !~/shell/git/track
+	release = !~/shell/git/release
+	debrelease = !~/shell/git/debrelease
+	mixedcrlf = !~/shell/git/mixedcrlf
+	handsoff = !~/shell/git/handsoff
+
+	co = checkout
+	ci = commit
+	st = status
+	tc = diff --staged
+	br = branch
+	di = diff
+	d = diff
+[push]
+	default = simple
+[diff]
+	algorithm = patience
+	renames = copies
+[format]
+	signature =
+[gc]
+	auto = 500
+[grep]
+	lineNumber = true
+[http]
+	sslVerify = false
+[log]
+	date = local
+
+[user]
+	email = daniel@voogsgerd.nl
+	name = Daniel Voogsgerd

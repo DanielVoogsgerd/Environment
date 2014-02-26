@@ -10,15 +10,14 @@ elif [[ "$USER" == "daniel" ]]; then
 else
 	PROMPT+='%{${fg[blue]}%}%n'
 fi
-PROMPT+='%{${fg[blue]}%}@'
+PROMPT+='%{${fg[white]}%}@'
 if [[ "$SSH_CONNECTED_HOST" == ":0" || "$SSH_CONNECTED_HOST" == ":0.0" ]]; then
-	PROMPT+='%{${fg[blue]}%}%m'
+	PROMPT+='%{${fg[green]}%}%m'
 else
 	PROMPT+='%{${fg[red]}%}%m'
 fi
-PROMPT+='%{${fg[blue]}%}:%~'       # Blue color, current directory, from $HOME
+PROMPT+='%{${fg[white]}%}:%{${fg[blue]}%}%~'       # Blue color, current directory, from $HOME
 PROMPT+='%{${fg[default]}%}$(vcs_super_info)' # Default color, Git status
 PROMPT+='%{${fg[default]}%} $ ' # Default color, prompt
-
-
-RPROMPT=$'[%?][%*]'
+RPROMPT='%{${fg[default]}%}[%(?,%{${fg[green]}%}%?,%{${fg[red]}%}%?)%{${fg[default]}%}]'
+RPROMPT+='%{${fg[default]}%}[%*]'

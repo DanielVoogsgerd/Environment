@@ -26,7 +26,13 @@ alias clip="xclip -sel clip"
 alias c='pygmentize -O style=monokai -f console256 -g'
 alias ':q'='exit'
 
+alias artisan="php artisan"
+
 alias grep="grep --exclude-dir='.svn' --exclude-dir='.git' --color=auto"
 alias grepr="grep -rnH"
 
+<<<<<<< HEAD
 alias cp="rsync -aP"
+=======
+alias swapcaps="/usr/bin/setxkbmap -option 'ctrl:swapcaps'"
+>>>>>>> 14ebc183f8226f245c3f3d7729e5c37c25413625

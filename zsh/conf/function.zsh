@@ -38,3 +38,13 @@ sshmount() {
 		echo "Unknown arguments.\nUsage: sshmount [FQDN]"
 	fi
 }
+
+function amihome {
+	if [[ "`pwd`" == $HOME || "`pwd`" == $HOME/* ]]; then
+		echo "Inside home"
+		return 0
+	else
+		echo "Outside home"
+		return 1
+	fi
+}
