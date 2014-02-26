@@ -27,5 +27,14 @@ function compress {
 	else
 		print "Source doesn't exist"
 	fi
-	
+}
+
+sshmount() {
+	if [ -n "$1" ]; then
+		string=$(echo "$1"| tr '[:upper:]' '[:lower:]') 
+		mkdir -p ~/Servers/"$string"
+		sshfs "$1":/ ~/Servers/"$string" -C
+	else
+		echo "Unknown arguments.\nUsage: sshmount [FQDN]"
+	fi
 }
