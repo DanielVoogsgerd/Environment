@@ -31,7 +31,7 @@ function compress {
 
 function sshmount() {
 	if [ -n "$1" ]; then
-		string=$(echo "$1"| tr '[:upper:]' '[:lower:]') 
+		string=$(echo "$1"| tr '[:upper:]' '[:lower:]')
 		mkdir -p ~/Servers/"$string"
 		sshfs "$1":/ ~/Servers/"$string" -C
 	else
@@ -47,4 +47,4 @@ function amihome {
 		echo "Outside home"
 		return 1
 	fi
-}w
+}
