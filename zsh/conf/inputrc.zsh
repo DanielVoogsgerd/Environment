@@ -16,4 +16,3 @@ bindkey "\eOH" beginning-of-line
 bindkey "\eOF" end-of-line
 bindkey "\e[H" beginning-of-line
 bindkey "\e[F" end-of-line
-

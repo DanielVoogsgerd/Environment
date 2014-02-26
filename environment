@@ -22,5 +22,3 @@ rvm install 1.9
 rvm use 1.9
 
 gem install bundler
-
-vim +BundleInstall

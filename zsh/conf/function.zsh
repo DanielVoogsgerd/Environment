@@ -47,4 +47,4 @@ function amihome {
 		echo "Outside home"
 		return 1
 	fi
-}
+}w
