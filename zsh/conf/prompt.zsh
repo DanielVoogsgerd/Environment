@@ -20,4 +20,10 @@ PROMPT+='%{${fg[white]}%}:%{${fg[blue]}%}%~'       # Blue color, current directo
 PROMPT+='%{${fg[default]}%}$(vcs_super_info)' # Default color, Git status
 PROMPT+='%{${fg[default]}%} $ ' # Default color, prompt
 RPROMPT='%{${fg[default]}%}[%(?,%{${fg[green]}%}%?,%{${fg[red]}%}%?)%{${fg[default]}%}]'
+
+amihome > /dev/null
+if [[ "$?" == "Inside home" ]]; then
+	RPROMPT='test'
+fi
+
 RPROMPT+='%{${fg[default]}%}[%*]'
