@@ -8,7 +8,6 @@ function getIP {
 	wget -q -O - http://checkip.dyndns.com/ | grep -Eo "[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+"
 }
 
-<<<<<<< HEAD
 export PIP=`getIP`
 
 function compress {
