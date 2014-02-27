@@ -32,5 +32,6 @@ alias artisan="php artisan"
 alias grep="grep --exclude-dir='.svn' --exclude-dir='.git' --color=auto"
 alias grepr="grep -rnH"
 
+alias cp="rsync -aP"
 alias swapcaps="/usr/bin/setxkbmap -option 'ctrl:swapcaps'"
 alias cp="rsync -aP"

@@ -1,6 +1,6 @@
 cd ~
 if [ ! -d "$HOME/Environment/.git/" ]; then
-	git clone https://github.com/DanielVoogsgerd/dotfiles.git Environment
+	git clone https://github.com/Fryslan123/dotfiles.git Environment
 else
 	cd Environment
 fi
@@ -10,8 +10,8 @@ git submodule init
 git submodule update
 git pull
 
-git config --global user.name "Daniel Voogsgerd"
-git config --global user.email "daniel@voogsgerd.nl"
+git config --global user.name "Fryslan123"
+git config --global user.email "sibrenvas@gmail.com"
 
 python link.py Server
 
@@ -22,5 +22,3 @@ rvm install 1.9
 rvm use 1.9
 
 gem install bundler
-
-vim +BundleInstall

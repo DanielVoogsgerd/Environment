@@ -9,4 +9,3 @@ ssh-reagent () {
        done
        echo Cannot find ssh agent - maybe you should reconnect and forward it?
 }
-

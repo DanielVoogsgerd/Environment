@@ -10,8 +10,8 @@ setopt AUTO_CD
 # Now we can pipe to multiple outputs!
 setopt MULTIOS
 
-# Spell check commands!  (Sometimes annoying)
-setopt CORRECT
+# Spell check commands!  (Always annoying!)
+#setopt CORRECT
 
 # Expand globs
 setopt GLOB_COMPLETE
