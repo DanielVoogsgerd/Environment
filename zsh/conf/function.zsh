@@ -25,7 +25,7 @@ function compress {
 	else
 		print "Source doesn't exist"
 	fi
-	
+
 }
 
 function amihome {

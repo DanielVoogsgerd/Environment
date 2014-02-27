@@ -12,7 +12,7 @@ def main():
     if len(args) > 1:
         test.filter(args[1])
 
-    test.link() 
+    test.link()
 
 
 class symlink:
@@ -26,7 +26,7 @@ class symlink:
 
         # Loop through the symlinkfiles and parse them
         for symlinkFile in symlinkFiles:
-            
+
             # Get the absolute path for the symlink (Bash convention)
             path = os.path.abspath(symlinkFile)
 
@@ -38,7 +38,7 @@ class symlink:
         return (paths)
 
     def parse(self, paths=False):
-        
+
         # Check if there are paths provided
         if not paths:
             paths = self.paths
@@ -72,7 +72,7 @@ class symlink:
 
                     # Debug code
                     link = s[0]
-                    
+
                     # Loop over all users and add them to the array
                     for user in s[1].split(','):
                         users.append( user.lower() )
@@ -82,7 +82,7 @@ class symlink:
 
 
                 if link.find('=>'):
-                    
+
                     # Split the symlink into a file and destination
                     s = link.split('=>')
 
@@ -101,7 +101,7 @@ class symlink:
                 links.append(link)
 
         self.links = links
-   
+
     def link(self, links=False):
 
         if not links:
@@ -130,7 +130,7 @@ class symlink:
                 os.symlink(file, dest)
                 print ('Symlink created!')
 
-            
+
 
             print ('--------------------')
 
