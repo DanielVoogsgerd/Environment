@@ -1,3 +1,7 @@
+# Enable terminal 256 colour support
+export TERM=xterm-256color
+[ -n "$TMUX" ] && export TERM=screen-256color
+
 # Path to your oh-my-zsh configuration.
 ENVIRONMENT=$HOME/Environment
 ZSH=$ENVIRONMENT/zsh
@@ -15,6 +19,12 @@ cd ~
 
 [ -r "$ZSH/settings.zsh" ] && source "$ZSH/settings.zsh"
 
+# Loading imported libraries
+for file in $ZSH/lib/*.zsh; do
+	[ -r "$file" ] && source "$file"
+done
+
+# Loading configs
 for file in $ZSH/conf/*.zsh; do
 	[ -r "$file" ] && source "$file"
 done
