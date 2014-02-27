@@ -24,6 +24,7 @@ alias v="vim"
 alias n="touch"
 alias clip="xclip -sel clip"
 alias c='pygmentize -O style=monokai -f console256 -g'
+alias extract="dtrx"
 alias ':q'='exit'
 
 alias artisan="php artisan"
