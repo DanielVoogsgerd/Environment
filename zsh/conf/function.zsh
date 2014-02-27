@@ -25,7 +25,6 @@ function compress {
 function sshmount() {
 	if [[ -n "$1" && -n "$2" ]]; then
 		server=$(echo "$1"| tr '[:upper:]' '[:lower:]')
-		dir=$(echo "$2"| tr '[:upper:]' '[:lower:]')
 		mkdir -p ~/Servers/"$server"
 		sshfs "$1":"$2" ~/Servers/"$server" -C
 	else
