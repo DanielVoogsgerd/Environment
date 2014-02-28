@@ -11,7 +11,7 @@ if [ -f $ENVIRONMENT/userspecific/zsh/before.zsh ]; then
 fi
 
 cd $ENVIRONMENT
-if [ -z "`git status -uno | sed -n 2p | grep up-to-date`" ]; then
+if [ -z "`git status -uno | grep up-to-date`" ] && [ -z "`git status -uno | grep ahead`" ]; then
 	echo "There is an update in your environment"
 	echo "Lemme pull that shit"
 	git pull -ff > /dev/null
