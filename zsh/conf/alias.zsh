@@ -5,6 +5,7 @@ alias la="ls -lA"
 alias lsa="ls -la"
 alias l="ls -la"
 
+alias refresh="exec zsh"
 alias cl="clear"
 
 alias ".."="cd ../"
