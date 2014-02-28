@@ -6,8 +6,12 @@ export TERM=xterm-256color
 ENVIRONMENT=$HOME/Environment
 ZSH=$ENVIRONMENT/zsh
 
+if [ -f $ENVIRONMENT/userspecific/zsh/before.zsh ]; then
+	source $ENVIRONMENT/userspecific/zsh/before.zsh
+fi
+
 cd $ENVIRONMENT
-if [ -z "`git status -uno | sed -n 2p | grep up-to-date`" ]; then
+if [ -z "`git status -uno | grep up-to-date`" ] && [ -z "`git status -uno | grep ahead`" ]; then
 	echo "There is an update in your environment"
 	echo "Lemme pull that shit"
 	git pull -ff > /dev/null
@@ -33,3 +37,10 @@ unset file
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 
 [ -s $HOME/.nvm/nvm.sh ] && . $HOME/.nvm/nvm.sh # This loads NVM
+
+if [ -f $ENVIRONMENT/userspecific/zsh/after.zsh ]; then
+	source $ENVIRONMENT/userspecific/zsh/after.zsh
+fi
+
+
+
