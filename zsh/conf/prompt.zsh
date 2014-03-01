@@ -1,5 +1,10 @@
 source $ZSH/vcs/zshrc.sh
 
+for color in {000..255}; do
+    FG[$color]="%{[38;5;${color}m%}"
+    BG[$color]="%{[48;5;${color}m%}"
+done
+
 SSH_CONNECTED_HOST=`who am i | awk -F"[()]" '{print $2}'`
 PROMPT=$''
 setopt PROMPT_SUBST
@@ -12,7 +17,7 @@ else
 fi
 PROMPT+='%{${fg[white]}%}@'
 if [[ "$SSH_CONNECTED_HOST" == ":0" || "$SSH_CONNECTED_HOST" == ":0.0" ]]; then
-	PROMPT+='%{${fg[green]}%}%m'
+	PROMPT+='%{${FG[221]}%}%m'
 else
 	PROMPT+='%{${fg[red]}%}%m'
 fi

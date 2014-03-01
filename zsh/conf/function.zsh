@@ -20,7 +20,7 @@ function compress {
 	fi
 }
 
-function sshmount() {
+function sshmount {
 	if [[ -n "$1" && -n "$2" ]]; then
 		server=$(echo "$1"| tr '[:upper:]' '[:lower:]')
 		mkdir -p ~/Servers/"$server"
@@ -37,5 +37,32 @@ function amihome {
 	else
 		echo "Outside home"
 		return 1
+	fi
+}
+
+function sambamount {
+	if [[ "$1" == "" || "$2" == "" || "$3" == "" || "$(id -u)" != "0" ]]; then
+	   echo "Usage: cifsmount <source> <username> <location>"
+	   echo "(Root privileges required)"
+	   return 1
+	fi
+
+	if [[ "$(which mount.cifs)" == "" ]]; then
+	   echo "mount.cifs not fount, exiting..."
+	   return 1
+	fi
+
+	src=${1//\\/\/}
+
+	domain=${2%\\*}
+	username=${2#*\\}
+
+	[[ "$SUDO_UID" == "" ]] && uid="$(id -u)" || uid="$SUDO_UID"
+	[[ "$SUDO_GID" == "" ]] && gid="$(id -g)" || gid="$SUDO_GID"
+
+	if [[ "$domain" == "$username" ]]; then
+	   mount.cifs "$src" -o username=$username,uid=$uid,gid=$gid "$3"
+	else
+	   mount.cifs "$src" -o domain=$domain,username=$username,uid=$uid,gid=$gid "$3"
 	fi
 }
