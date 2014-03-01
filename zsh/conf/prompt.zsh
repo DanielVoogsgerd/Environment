@@ -11,18 +11,18 @@ setopt PROMPT_SUBST
 if [[ "$USER" == "root" ]]; then
 	PROMPT+='%F{009}%n'
 else
-	PROMPT+='%F{196}%n'
+	PROMPT+='%F{155}%n'
 fi
 PROMPT+='%F{147}@'
 if [[ "$SSH_CONNECTED_HOST" == ":0" || "$SSH_CONNECTED_HOST" == ":0.0" ]]; then
 	PROMPT+='%F{155}%m%f'
 else
-	PROMPT+='%F{185}%m'
+	PROMPT+='%F{009}%m'
 fi
 PROMPT+='%F{147}:%F{147}%~'       # Blue color, current directory, from $HOME
 PROMPT+='%F{147}$(vcs_super_info)' # Default color, Git status
 PROMPT+='%F{147} $ ' # Default color, prompt
-RPROMPT='%F{147}[%(?,%F{185}%}%?,%F{196}%}%?)%F{147}%}]'
+RPROMPT='%F{147}[%(?,%F{185}%}%?,%F{160}%}%?)%F{147}%}]'
 RPROMPT+='%F{147}[%*]'
 
 # Besides an ordinairy prompt I also set the terminal window to contain the executed command. Thanks to Brian from bstpierre
