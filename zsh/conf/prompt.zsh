@@ -10,22 +10,20 @@ PROMPT=$''
 setopt PROMPT_SUBST
 if [[ "$USER" == "root" ]]; then
 	PROMPT+='%{${fg[red]}%}%n'
-elif [[ "$USER" == "daniel" ]]; then
-	PROMPT+='%{${fg[green]}%}%n'
 else
-	PROMPT+='%{${fg[blue]}%}%n'
+	PROMPT+='%F{131}%n'
 fi
-PROMPT+='%{${fg[white]}%}@'
+PROMPT+='%F{147}@'
 if [[ "$SSH_CONNECTED_HOST" == ":0" || "$SSH_CONNECTED_HOST" == ":0.0" ]]; then
-	PROMPT+='%{${FG[221]}%}%m'
+	PROMPT+='%F{221}%m%f'
 else
 	PROMPT+='%{${fg[red]}%}%m'
 fi
-PROMPT+='%{${fg[white]}%}:%{${fg[blue]}%}%~'       # Blue color, current directory, from $HOME
-PROMPT+='%{${fg[default]}%}$(vcs_super_info)' # Default color, Git status
-PROMPT+='%{${fg[default]}%} $ ' # Default color, prompt
-RPROMPT='%{${fg[default]}%}[%(?,%{${fg[green]}%}%?,%{${fg[red]}%}%?)%{${fg[default]}%}]'
-RPROMPT+='%{${fg[default]}%}[%*]'
+PROMPT+='%F{147}:%F{147}%~'       # Blue color, current directory, from $HOME
+PROMPT+='%F{147}$(vcs_super_info)' # Default color, Git status
+PROMPT+='%F{147} $ ' # Default color, prompt
+RPROMPT='%F{147}%}[%(?,%F{185}%}%?,%F{131}%}%?)%F{147}%}]'
+RPROMPT+='%F{147}[%*]'
 
 # Besides an ordinairy prompt I also set the terminal window to contain the executed command. Thanks to Brian from bstpierre
 
