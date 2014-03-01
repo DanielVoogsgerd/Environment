@@ -5,7 +5,6 @@ alias la="ls -lA"
 alias lsa="ls -la"
 alias l="ls -la"
 
-alias refresh="exec zsh"
 alias cl="clear"
 
 alias ".."="cd ../"
@@ -27,6 +26,12 @@ alias clip="xclip -sel clip"
 alias c='pygmentize -O style=monokai -f console256 -g'
 alias extract="dtrx"
 alias ':q'='exit'
+
+# Conserve directories
+alias conserveDir="pwd>$cdir"
+alias tmux="conserveDir && tmux -2"
+alias refresh="conserveDir && exec zsh"
+
 
 alias artisan="php artisan"
 

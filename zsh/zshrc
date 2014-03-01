@@ -5,12 +5,16 @@ export TERM=xterm-256color
 # Path to your oh-my-zsh configuration.
 ENVIRONMENT=$HOME/Environment
 ZSH=$ENVIRONMENT/zsh
+cdir=$ENVIRONMENT/.cdir
 
 if [ -f $ENVIRONMENT/userspecific/zsh/before.zsh ]; then
+	echo "Loading user settings (Before)"
 	source $ENVIRONMENT/userspecific/zsh/before.zsh
 fi
 
 cd $ENVIRONMENT
+
+echo "Check for updates in the git repo"
 if [ -z "`git status -uno | grep up-to-date`" ] && [ -z "`git status -uno | grep ahead`" ]; then
 	echo "There is an update in your environment"
 	echo "Lemme pull that shit"
@@ -21,15 +25,20 @@ fi
 
 cd ~
 
+echo "Loading general settings"
 [ -r "$ZSH/settings.zsh" ] && source "$ZSH/settings.zsh"
 
 # Loading imported libraries
+echo "Loading libraries"
 for file in $ZSH/lib/*.zsh; do
+	echo "Loading library: ($file)"
 	[ -r "$file" ] && source "$file"
 done
 
 # Loading configs
+echo "Loading configs"
 for file in $ZSH/conf/*.zsh; do
+	echo "Loading config: ($file)"
 	[ -r "$file" ] && source "$file"
 done
 unset file
@@ -39,8 +48,9 @@ PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 [ -s $HOME/.nvm/nvm.sh ] && . $HOME/.nvm/nvm.sh # This loads NVM
 
 if [ -f $ENVIRONMENT/userspecific/zsh/after.zsh ]; then
+	echo "Loading userspecific settings (after)"
 	source $ENVIRONMENT/userspecific/zsh/after.zsh
 fi
 
-
-
+[ -f $cdir ] && echo "cdir found (`cat $cdir`)" && cd "`cat $cdir`" && rm "$cdir"
+clear

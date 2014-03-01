@@ -13,3 +13,5 @@ vim/vim/tmpdir/
 
 userspecific/
 userspecific/*
+
+.cdir
