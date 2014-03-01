@@ -7,6 +7,13 @@ function md() { [ -n "$1" ] && mkdir -p "$@" && cd "$1"; }
 function getIP {
 	wget -q -O - http://checkip.dyndns.com/ | grep -Eo "[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+"
 }
+function sunrise {
+	l=12765843;curl -s http://weather.yahooapis.com/forecastrss?w=$l|grep astronomy | awk -F\" '{print $2;}'
+}
+
+function sunset {
+
+}
 
 function compress {
 	if [ -f $1 ] || [ -d $1 ];then
