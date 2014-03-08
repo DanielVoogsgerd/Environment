@@ -23,7 +23,7 @@ PROMPT+='%F{004}:%F{004}%~'       # Blue color, current directory, from $HOME
 PROMPT+='%F{004}$(vcs_super_info)' # Default color, Git status
 PROMPT+='%F{015} $ ' # Default color, prompt
 RPROMPT='%F{004}[%(?,%F{012}%}%?,%F{001}%}%?)%F{004}%}]'
-RPROMPT+='%F{004}[%*]'
+RPROMPT+='%F{004}[%F{012}%*%F{004}]%f'
 
 # Besides an ordinairy prompt I also set the terminal window to contain the executed command. Thanks to Brian from bstpierre
 
