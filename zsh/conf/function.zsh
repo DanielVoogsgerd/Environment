@@ -15,6 +15,14 @@ function sunset {
 
 }
 
+function killuser {
+	skill -KILL -u "$1"
+}
+
+function fancyLocate {
+	locate "$1" | xargs ls -lsh
+}
+
 function compress {
 	if [ -f $1 ] || [ -d $1 ];then
 		if [ -f $2 ];then
@@ -71,5 +79,23 @@ function sambamount {
 	   mount.cifs "$src" -o username=$username,uid=$uid,gid=$gid "$3"
 	else
 	   mount.cifs "$src" -o domain=$domain,username=$username,uid=$uid,gid=$gid "$3"
+	fi
+}
+
+function exist {
+	if hash "$1" 2>/dev/null; then
+			return 0
+	else
+			return 1
+	fi
+}
+
+function pacver {
+	if exist "packer"; then
+		packer -Si $1 | grep --color=never 'Name\|Version\|Build Date'
+	elif exist "pacman"; then
+		pacman -Si $1 | grep --color=never 'Name\|Version\|Build Date'
+	else
+		echo "No supported package manager found"
 	fi
 }
