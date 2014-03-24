@@ -91,7 +91,9 @@ function exist {
 }
 
 function pacver {
-	if exist "packer"; then
+	if exist "pacaur"; then
+		pacaur -Si $1 | grep --color=never 'Name\|Version\|Build Date'
+	elif exist "packer"; then
 		packer -Si $1 | grep --color=never 'Name\|Version\|Build Date'
 	elif exist "pacman"; then
 		pacman -Si $1 | grep --color=never 'Name\|Version\|Build Date'
