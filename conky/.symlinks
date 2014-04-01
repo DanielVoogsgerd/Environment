@@ -1,0 +1,6 @@
+time => ~/.conkyrc_time
+temperature => ~/.conkyrc_temperature
+sun => ~/.conkyrc_sun
+wind => ~/.conkyrc_wind
+general => ~/.conkyrc_general
+pcinfo => ~/.conkyrc_pcinfo
