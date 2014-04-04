@@ -3,9 +3,11 @@ alias "$USER"="cd /home/$USER/"
 alias ls="ls --color=auto -h -F"
 alias la="ls -lA"
 alias lsa="ls -la"
-alias l="ls -la"
+alias l="ls -lh"
+alias ll="ls -lah"
 
 alias cl="clear"
+alias cls="clear && ls -h"
 
 alias ".."="cd ../"
 alias "..."="cd ../../"
