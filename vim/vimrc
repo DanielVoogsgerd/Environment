@@ -38,6 +38,11 @@ set number
 set relativenumber
 set cursorcolumn
 set cursorline
+set backupdir=/tmp
+
+set swapfile
+set dir=/tmp
+
 
 " searchoptions
 set incsearch
