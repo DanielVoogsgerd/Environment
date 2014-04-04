@@ -9,6 +9,8 @@ alias ll="ls -lah"
 alias cl="clear"
 alias cls="clear && ls -h"
 
+alias mv="mv -v"
+
 alias ".."="cd ../"
 alias "..."="cd ../../"
 alias "...."="cd ../../../"
