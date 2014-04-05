@@ -3,9 +3,13 @@ alias "$USER"="cd /home/$USER/"
 alias ls="ls --color=auto -h -F"
 alias la="ls -lA"
 alias lsa="ls -la"
-alias l="ls -la"
+alias l="ls -lh"
+alias ll="ls -lah"
 
 alias cl="clear"
+alias cls="clear && ls -h"
+
+alias mv="mv -v"
 
 alias ".."="cd ../"
 alias "..."="cd ../../"
@@ -40,4 +44,6 @@ alias grepr="grep -rnH"
 
 alias cp="rsync -aP"
 alias swapcaps="/usr/bin/setxkbmap -option 'ctrl:swapcaps'"
-alias cp="rsync -aP"
+alias SWAPCAPS="/usr/bin/setxkbmap -option 'ctrl:swapcaps'"
+
+alias whois="whois -h whois.geektools.com"

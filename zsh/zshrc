@@ -54,4 +54,13 @@ fi
 
 [ -f $cdir ] && echo "cdir found (`cat $cdir`)" && cd "`cat $cdir`" && rm "$cdir"
 clear
+<<<<<<< HEAD
 archey
+=======
+
+if hash "archey" 2>/dev/null; then
+		archey
+elif hash "screenfetch" 2>/dev/null; then
+		screenfetch
+fi
+>>>>>>> a67c5f003bcf112853e843b8c14c4fee21b133e5

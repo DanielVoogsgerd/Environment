@@ -20,8 +20,8 @@ setopt PUSHD_MINUS
 
 # Defaults
 EDITOR="nano"
-VISUAL="subl3"
 GIT_EDITOR="nano"
+VISUAL="subl3"
 
 export LANG="en_GB.UTF-8"
 export EDITOR VISUAL GIT_EDITOR
