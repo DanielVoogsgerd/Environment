@@ -54,3 +54,4 @@ fi
 
 [ -f $cdir ] && echo "cdir found (`cat $cdir`)" && cd "`cat $cdir`" && rm "$cdir"
 clear
+archey
