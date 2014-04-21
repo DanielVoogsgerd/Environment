@@ -157,3 +157,10 @@ bar {
 }
 
 font pango:Helvetica Neue, icons 10
+
+# Set the wallpaper
+exec --no-startup-id sh ~/.fehbg
+
+
+#And now some random execs
+
