@@ -182,6 +182,7 @@ bar {
 }
 
 exec nm-applet
+exec feh  --bg-scale '$ENVIRONMENT/i3/wallpaper.jpg'
 
 # Custom additional configuration
 # dynamic tagging feature
