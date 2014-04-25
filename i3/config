@@ -116,16 +116,6 @@ bindsym $mod+Shift+0 move container to workspace number 10
 bindsym $mod+Shift+minus move scratchpad
 
 
-assign [class="Komodo"] 1
-assign [class="Sublime_text"] 1
-assign [class="chromium-browser"] 3
-assign [class="Google-chrome"] 3
-assign [class="Firefox"] 3
-assign [class="Spotify"] 4
-assign [class="Wine" instance="SQLyog.exe"] 5
-assign [class="empathy"] 6
-assign [class="Empathy"] 6
-
 for_window [class="Gtkdialog"] floating enable
 for_window [class="Gnome-control-center"] floating enable
 for_window [class="Firefox" window_role="Preferences"] floating enable
@@ -191,7 +181,7 @@ bar {
         status_command i3status
 }
 
-
+exec nm-applet
 
 
 
