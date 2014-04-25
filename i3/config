@@ -192,3 +192,7 @@ exec nm-applet
 bindsym $mod+Shift+t exec ~/.i3/get_workspace_options.py | dmenu -b -i | ~/.i3/move_to_workspace.py
 
 bindsym $mod+n exec dmenu -b -i | ~/.i3/rename_workspace.py
+
+bindsym XF86AudioRaiseVolume exec pactl set-sink-volume 0 +5%
+bindsym XF86AudioLowerVolume exec pactl set-sink-volume 0 -- -5%
+bindsym XF86AudioMute exec ~/bin/toggle-mute
