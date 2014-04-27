@@ -140,7 +140,6 @@ for_window [class="Galculator"] floating enable
 for_window [class="Xfce4-notifyd"] floating enable; border none; focus mode_toggle
 for_window [class="Pavucontrol"] floating enable
 for_window [class="Google-chrome*" title="Select Image - *"] floating enable
-for_window [class="Google-chrome*" title="crx*"] floating enable
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
