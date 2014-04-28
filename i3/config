@@ -43,7 +43,7 @@ bindsym $mod+p exec rofi -rnow -font "snap-10" -fg "#505050" -bg "#000000" -hlfg
 # change focus
 bindsym $mod+j focus left
 bindsym $mod+k focus down
-bindsym $mod+l focus up
+#bindsym $mod+l focus up
 bindsym $mod+semicolon focus right
 
 # alternatively, you can use the cursor keys:
@@ -207,6 +207,8 @@ bindsym $mod+n exec dmenu -b -i | ~/.i3/rename_workspace.py
 bindsym XF86AudioRaiseVolume exec pactl set-sink-volume 0 +10%
 bindsym XF86AudioLowerVolume exec pactl set-sink-volume 0 -- -10%
 bindsym XF86AudioMute exec /bin/toggle-mute
+
+bindsym $mod+l exec i3lock -c000000
 
 client.unfocused        #333333 #2d2d2d #dedede
 client.focused          #333333 #2d2d2d #00FF00
