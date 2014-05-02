@@ -1,3 +1,4 @@
+# Written by: Nathan Broadbent
 # A shortcut function that simplifies usage of xclip.
 # - Accepts input from either stdin (pipe), or params.
 # ------------------------------------------------
