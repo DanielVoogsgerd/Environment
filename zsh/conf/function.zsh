@@ -101,3 +101,8 @@ function pacver {
 		echo "No supported package manager found"
 	fi
 }
+
+function enablevga {
+	DISP="VGA1"
+	xrandr --output "$DISP" --auto --$1 LVDS1
+}
