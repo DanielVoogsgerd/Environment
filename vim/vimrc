@@ -20,6 +20,7 @@ Bundle 'tpope/vim-surround'
 Bundle 'altercation/vim-colors-solarized'
 Bundle 'chriskempson/base16-vim'
 Bundle 'sickill/vim-monokai'
+Bundle 'PotatoesMaster/i3-vim-syntax'
 
 " End bundles
 filetype plugin indent on
