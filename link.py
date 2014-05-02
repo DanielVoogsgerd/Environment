@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/env python2
 
 # Importing globOS because linux sucks, wow that was a bad one.
 import glob, os, sys
