@@ -30,6 +30,7 @@ alias clip="xclip -sel clip"
 alias c='pygmentize -O style=monokai -f console256 -g'
 alias extract="dtrx"
 alias ':q'='exit'
+alias open="xdg-open"
 
 # Conserve directories
 alias conserveDir="pwd>$cdir"
