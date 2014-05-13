@@ -1,13 +1,11 @@
 {
 	"bold_folder_labels": true,
 	"caret_style": "phase",
-	"color_scheme": "Packages/Theme - Spacegray/base16-eighties.dark.tmTheme",
+	"color_scheme": "Packages/User/base16-eighties.dark (SL).tmTheme",
 	"font_face": "Meslo LG S",
 	"font_size": 11,
 	"highlight_line": true,
-	"ignored_packages":
-	[
-	],
+	"ignored_packages": [],
 	"line_padding_bottom": 3,
 	"line_padding_top": 3,
 	"theme": "Spacegray Eighties.sublime-theme"
