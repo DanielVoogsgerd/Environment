@@ -66,11 +66,7 @@ function sambamount {
 }
 
 function exist {
-	if hash "$1" 2>/dev/null; then
-			return 0
-	else
-			return 1
-	fi
+	return hash "$1" 2>/dev/null
 }
 
 function pacver {
