@@ -1,7 +1,3 @@
-function getBattery {
-	echo `acpi | awk '{ print $4 }' | cut -d "," -f 1`
-}
-
 function md() { [ -n "$1" ] && mkdir -p "$@" && cd "$1"; }
 
 function getIP {
