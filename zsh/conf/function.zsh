@@ -70,11 +70,11 @@ function exist {
 }
 
 function pacver {
-	if exist "pacaur"; then
+	if hash "pacaur" 2>/dev/null; then
 		pacaur -Si $1 | grep --color=never 'Name\|Version\|Build Date'
-	elif exist "packer"; then
+	elif hash "packer" 2>/dev/null; then
 		packer -Si $1 | grep --color=never 'Name\|Version\|Build Date'
-	elif exist "pacman"; then
+	elif hash "pacman" 2>/dev/null; then
 		pacman -Si $1 | grep --color=never 'Name\|Version\|Build Date'
 	else
 		echo "No supported package manager found"
