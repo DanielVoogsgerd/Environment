@@ -100,5 +100,3 @@ function! ShowDigraphs ()
     call getchar()
     return "\<C-K>"
 endfunction
-
-
