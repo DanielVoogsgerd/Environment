@@ -44,17 +44,12 @@ bindsym $mod+b exec bookmark
 # installed.
 # bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
 
-<<<<<<< HEAD
-# Launch i3lock
-bindsym $mod+l exec i3lock-wrapper
 exec xautolock -time 10 -locker 'i3lock-wrapper'
-=======
 # change focus
 bindsym $mod+j focus left
 bindsym $mod+k focus down
 bindsym $mod+l focus up
 bindsym $mod+semicolon focus right
->>>>>>> Config update
 
 # alternatively, you can use the cursor keys:
 bindsym $mod+Left focus left
@@ -197,13 +192,8 @@ bar {
     }
 }
 
-<<<<<<< HEAD
 exec --no-startup-id nm-applet
 exec --no-startup-id feh --bg-scale "~/.i3/wallpaper.jpg"
-=======
-exec nm-applet
-exec feh --bg-scale "~/Environment/i3/wallpaper.jpg"
->>>>>>> Fix wallpaper and network device
 
 # Custom additional configuration
 # dynamic tagging feature
@@ -212,21 +202,9 @@ bindsym $mod+Shift+t exec ~/.i3/get_workspace_options.py | dmenu -b -i | ~/.i3/m
 
 bindsym $mod+n exec dmenu -b -i | ~/.i3/rename_workspace.py
 
-<<<<<<< HEAD
-bindsym XF86AudioRaiseVolume exec pactl set-sink-volume 0 +10%
-bindsym XF86AudioLowerVolume exec pactl set-sink-volume 0 -- -10%
-<<<<<<< HEAD
-bindsym XF86AudioMute exec /usr/local/bin/toggle-mute
-=======
-bindsym XF86AudioMute exec /bin/toggle-mute
-
-bindsym $mod+l exec i3lock-wrapper
->>>>>>> Fix wallpaper and network device
-=======
 exec xfce4-volumed-pulse
 
 bindsym $mod+o exec i3lock-wrapper
->>>>>>> Config update
 
 client.unfocused        #333333 #2d2d2d #dedede
 client.focused          #333333 #2d2d2d #00FF00
