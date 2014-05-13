@@ -21,33 +21,84 @@ Bundle 'altercation/vim-colors-solarized'
 Bundle 'chriskempson/base16-vim'
 Bundle 'sickill/vim-monokai'
 Bundle 'PotatoesMaster/i3-vim-syntax'
+Bundle 'atweiden/vim-hudigraphs'
+
 
 " End bundles
-filetype plugin indent on
 
+filetype plugin indent on
 set t_Co=256
 
+" Visual settings
 hi clear
 syntax on
 set background=dark
 colorscheme monokai
 
-let s:tabwidth=4
-
-set tabstop=4
+" Couple settings
 set number
 set relativenumber
 set cursorcolumn
 set cursorline
 set backupdir=/tmp
-
 set swapfile
 set dir=/tmp
 
+" Remaps
+nnoremap ; :
 
-" searchoptions
+" I'm switching to PSR, so I'm switching for tab's to 4 spaces.
+let s:tabwidth=4
+set expandtab
+set shiftwidth=4
+set softtabstop=4
+set tabstop=4
+
+" Searchoptions
 set incsearch
 set ignorecase
 set hlsearch
 
+" Colourcolumn
+highligh ColorColumn ctermbg=darkgrey
+set colorcolumn=81,121
+
+" Trailing whitespace and incorrect indentation
+exec "set listchars=tab:\uBB\uBB,trail:\uB7,nbsp:~"
+set list
+
+" Since visual block mode is way better than visual mode; why don't we just swap them.
+nnoremap    v   <C-V>
+nnoremap <C-V>     v
+
+vnoremap    v   <C-V>
+vnoremap <C-V>     v
+
+" Better swapfile handling
+augroup NoSimultaneousEdits
+    autocmd!
+    autocmd SwapExists * let v:swapchoice = 'o'
+    autocmd SwapExists * echomsg ErrorMsg
+    autocmd SwapExists * echo 'Duplicate edit session (readonly)'
+    autocmd SwapExists * echohl None
+    autocmd SwapExists * sleep 2
+augroup END
+
+" Line highlighting
 hi LineNr term=bold cterm=NONE ctermfg=DarkGrey ctermbg=NONE gui=NONE guifg=DarkGrey guibg=NONE
+
+" Spellcheck for English, Basic English and Dutch
+nmap ;s  :set invspell spelllang=en<CR>
+nmap ;ss :set invspell spelllang=en-basic<CR>
+nmap ;sd :set invspell spelllang=nl<CR>
+
+" Map CTRL-K to a list diagraph without losing context
+inoremap <expr> <C-K> ShowDigraphs()
+
+function! ShowDigraphs ()
+    digraphs
+    call getchar()
+    return "\<C-K>"
+endfunction
+
+
