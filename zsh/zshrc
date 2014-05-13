@@ -42,8 +42,6 @@ for file in $ZSH/conf/*.zsh; do
 done
 unset file
 
-PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
-
 [ -s $HOME/.nvm/nvm.sh ] && . $HOME/.nvm/nvm.sh # This loads NVM
 
 if [ -f $ENVIRONMENT/userspecific/zsh/after.zsh ]; then

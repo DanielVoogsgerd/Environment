@@ -9,12 +9,3 @@
 [submodule "vundle"]
 	path = vim/vim/bundle/vundle
 	url = git://github.com/gmarik/vundle.git
-[submodule "apps/quicktile"]
-	path = apps/quicktile
-	url = git@github.com:ssokolow/quicktile.git
-[submodule "apps/sshuttle"]
-	path = apps/sshuttle
-	url = git@github.com:apenwarr/sshuttle.git
-[submodule "apps/wp-cli"]
-	path = apps/wp-cli
-	url = git@github.com:wp-cli/wp-cli.git
