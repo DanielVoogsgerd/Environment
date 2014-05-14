@@ -1,16 +1,21 @@
+# Typing your own name to hop to the homedir is awesome
 alias "$USER"="cd /home/$USER/"
 
+# Better listing
 alias ls="ls --color=auto -h -F"
-alias la="ls -lA"
-alias lsa="ls -la"
+alias la="ls -lAh"
+alias lsa="ls -lah"
 alias l="ls -lh"
 alias ll="ls -lah"
 
+# clear aliasses
 alias cl="clear"
 alias cls="clear && ls -h"
 
+# Moving verbose will show you what files are being moved. It is the most progressslike you're gonnna get.
 alias mv="mv -v"
 
+# Quick backwards dir hopping
 alias ".."="cd ../"
 alias "..."="cd ../../"
 alias "...."="cd ../../../"
@@ -21,6 +26,7 @@ alias "......."="cd ../../../../../"
 # Git aliasses
 alias g="git"
 
+# Really short aliases, for basic operations
 alias s="subl3"
 alias t="tree"
 alias d="tree -d"
@@ -37,14 +43,20 @@ alias conserveDir="pwd>$cdir"
 alias tmux="conserveDir && tmux -2"
 alias refresh="conserveDir && exec zsh"
 
-
-alias artisan="php artisan"
-
+# Grep is awesome, but some things should be default for me
 alias grep="grep --exclude-dir='.svn' --exclude-dir='.git' --color=auto"
 alias grepr="grep -rnH"
 
+# Better cp, why send the same file twice
 alias cp="rsync -aP"
+
+# Because capslock should have been ctrl for the get go
 alias swapcaps="/usr/bin/setxkbmap -option 'ctrl:swapcaps'"
 alias SWAPCAPS="/usr/bin/setxkbmap -option 'ctrl:swapcaps'"
 
+# I love using geektools for whois
 alias whois="whois -h whois.geektools.com"
+
+# For people working with Laravel this is very useful
+alias art="php artisan"
+alias artisan="php artisan"

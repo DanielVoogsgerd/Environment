@@ -9,15 +9,15 @@ SSH_CONNECTED_HOST=`who am i | awk -F"[()]" '{print $2}'`
 PROMPT=$''
 setopt PROMPT_SUBST
 if [[ "$USER" == "root" ]]; then
-	PROMPT+='%F{001}%n'
+    PROMPT+='%F{001}%n'
 else
-	PROMPT+='%F{002}%n'
+    PROMPT+='%F{002}%n'
 fi
 PROMPT+='%F{004}@'
 if [[ "$SSH_CONNECTED_HOST" == ":0" || "$SSH_CONNECTED_HOST" == ":0.0" ]]; then
-	PROMPT+='%F{005}%m%f'
+    PROMPT+='%F{005}%m%f'
 else
-	PROMPT+='%F{009}%m'
+    PROMPT+='%F{009}%m'
 fi
 PROMPT+='%F{004}:%F{004}%~'       # Blue color, current directory, from $HOME
 PROMPT+='%F{004}$(vcs_super_info)' # Default color, Git status
@@ -54,4 +54,3 @@ function precmd() {
 function preexec() {
     title "$1" "%m:%35<...<%~"
 }
-
