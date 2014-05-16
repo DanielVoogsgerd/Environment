@@ -70,7 +70,16 @@ function pacver {
     fi
 }
 
-function enablevga {
-    DISP="VGA1"
-    xrandr --output "$DISP" --auto --$1 LVDS1
+function vga {
+    case "$1" in
+        "enable")
+            xrandr --output "VGA1" --$2 LVDS1 --auto
+            ;;
+        "disable")
+            xrandr --output "VGA1" --off
+        ;;
+
+        *)
+            echo "What do you want to do?"
+    esac
 }
