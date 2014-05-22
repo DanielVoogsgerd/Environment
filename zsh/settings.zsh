@@ -26,4 +26,4 @@ VISUAL="subl3"
 export LANG="en_GB.UTF-8"
 export EDITOR VISUAL GIT_EDITOR
 
-export PATH=$ENVIRONMENT/path:$PATH
+export PATH=$ENVIRONMENT/bin:$PATH
