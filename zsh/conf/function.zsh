@@ -83,3 +83,7 @@ function vga {
             echo "What do you want to do?"
     esac
 }
+
+function editbin {
+    $EDITOR `which $1`
+}
