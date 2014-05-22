@@ -2,7 +2,7 @@
 export TERM=xterm-256color
 [ -n "$TMUX" ] && export TERM=screen-256color
 
-ENVIRONMENT=$HOME/Environment
+export ENVIRONMENT=$HOME/Environment
 ZSH=$ENVIRONMENT/zsh
 cdir=$ENVIRONMENT/.cdir
 
