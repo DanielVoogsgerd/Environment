@@ -34,6 +34,10 @@ bindsym $mod+Shift+q kill
 bindsym $mod+Tab exec rofi -now -font "snap-10" -fg "#505050" -bg "#000000" -hlfg "#ffb964" -hlbg "#000000" -o 85
 bindsym $mod+d exec rofi -snow -font "snap-10" -fg "#505050" -bg "#000000" -hlfg "#ffb964" -hlbg "#000000" -o 85 -term xfce4-terminal.wrapper
 bindsym $mod+p exec rofi -rnow -font "snap-10" -fg "#505050" -bg "#000000" -hlfg "#ffb964" -hlbg "#000000" -o 85
+bindsym $mod+t exec i3_switch_workspace
+bindsym $mod+g exec search
+bindsym $mod+b exec bookmark
+
 
 # There also is the (new) i3-dmenu-desktop which only displays applications
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
