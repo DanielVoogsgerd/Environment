@@ -1,0 +1,48 @@
+#!/bin/bash
+
+HISTFILE=/tmp/.gshist
+COMPLETION=false
+
+if [ -f $HOME/.dmenurc ]; then
+  . $HOME/.dmenurc
+else
+  DMENU='rofi -dmenu -p Google -i'
+fi
+
+if [ $COMPLETION = true ]; then
+    GS=`cat $HISTFILE | $DMENU $*`
+else
+    GS=`echo -n "" | $DMENU $*`
+fi
+
+echo "Input: $GS"
+
+if [ -z "$GS" ]; then
+    echo "Okay byebye"
+    exit
+fi
+
+if grep -q "$GS" "$HISTFILE" ; then
+    echo already exists in history
+else
+    echo $GS >> $HISTFILE
+    echo "Putting Search query into the histfile"
+fi
+
+if [[ $GS == !* ]]; then
+    echo "Requested a special search engine"
+    GS=`echo "$GS" | cut -c 2-`
+    SE=`echo "$GS" | awk '{ print $1 }'`
+    GS=`echo "$GS" | awk '{ print $2 }'`
+    echo "Refined searchquery: $GS"
+    echo "Search engine: $SE"
+
+    URL=`grep -i "^$SE|" $HOME/.searchengines | cut -d "|" -f2 | tr -d "\n"`
+    echo "Search engine url: $URL"
+else
+    echo "Just use Google"
+    URL="http://www.google.com/search?q=%s"
+fi
+LOC="${URL/\%s/$GS}"
+
+xdg-open "$LOC"
