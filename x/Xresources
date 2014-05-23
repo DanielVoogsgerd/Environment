@@ -13,3 +13,12 @@ rofi.yoffset: 0
 rofi.xoffset: 0
 rofi.width: 400
 rofi.fixed_num_lines: 1
+Xft.dpi: 96
+Xft.antialias: true
+Xft.hinting: true
+Xft.rgba: rgb
+Xft.autohint: false
+Xft.hintstyle: hintslight
+Xft.lcdfilter: lcddefault
+
+

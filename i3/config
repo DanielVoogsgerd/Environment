@@ -192,8 +192,7 @@ bar {
     }
 }
 
-exec --no-startup-id nm-applet
-exec --no-startup-id feh --bg-scale "~/.i3/wallpaper.jpg"
+exec nm-applet
 
 # Custom additional configuration
 # dynamic tagging feature
