@@ -87,3 +87,14 @@ function vga {
 function editbin {
     $EDITOR `which $1`
 }
+
+function server {
+    if [ -n "$1" ]; then
+        PORT="$1"
+    else
+        PORT="8000"
+    fi
+
+    xdg-open "http://localhost:$PORT/"
+    php -S localhost:$PORT
+}
