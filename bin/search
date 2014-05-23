@@ -37,7 +37,7 @@ if [[ $GS == !* ]]; then
     echo "Refined searchquery: $GS"
     echo "Search engine: $SE"
 
-    URL=`grep -i "^$SE|" $HOME/.searchengines | cut -d "|" -f2 | tr -d "\n"`
+    URL=`grep -i "^$SE|" $ENVIRONMENT/.searchengines | cut -d "|" -f2 | tr -d "\n"`
     echo "Search engine url: $URL"
 else
     echo "Just use Google"
