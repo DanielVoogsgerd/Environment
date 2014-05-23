@@ -176,10 +176,10 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
-# Start i3bar to display a workspace bar (plus the system information i3status
+# Start i3bar to display a workspace bar (plus the system information pii3status
 # finds out, if available)
 bar {
-	status_command i3status --config ~/.i3/status.conf
+        status_command i3status --config ~/.i3/status.conf
 	font pango:Meslo LG S 9
 
     colors {
@@ -193,8 +193,8 @@ bar {
     }
 }
 
-exec --no-startup-id nm-applet
-exec --no-startup-id feh --bg-scale "~/.i3/wallpaper.jpg"
+exec nm-applet
+exec feh --bg-scale "~/Environment/i3/wallpaper.jpg"
 
 # Custom additional configuration
 # dynamic tagging feature
@@ -207,7 +207,7 @@ bindsym XF86AudioRaiseVolume exec pactl set-sink-volume 0 +10%
 bindsym XF86AudioLowerVolume exec pactl set-sink-volume 0 -- -10%
 bindsym XF86AudioMute exec /usr/local/bin/toggle-mute
 
-bindsym $mod+l exec i3lock -c000000
+bindsym $mod+l exec i3lock-wrapper
 
 client.unfocused        #333333 #2d2d2d #dedede
 client.focused          #333333 #2d2d2d #00FF00
