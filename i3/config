@@ -50,7 +50,6 @@ bindsym $mod+j focus left
 bindsym $mod+k focus down
 bindsym $mod+l focus up
 bindsym $mod+semicolon focus right
->>>>>>> i3lock settings
 
 # alternatively, you can use the cursor keys:
 bindsym $mod+Left focus left
