@@ -1,13 +1,13 @@
-rofi.background: #333
-rofi.foreground: #1aa
-rofi.highlightbg: #1aa
-rofi.highlightfg: #111
-rofi.bordercolor: #1aa
+rofi.background: #2a2a2a
+rofi.foreground: #888888
+rofi.highlightbg: #2a2a2a
+rofi.highlightfg: #ffffff
+rofi.bordercolor: #000000
 rofi.padding: 2
 rofi.lines: 8
 rofi.borderwidth: 2
 rofi.opacity: 90
-rofi.font: SourceCodePro-9
+rofi.font: Meslo LG S-10
 rofi.location: 0
 rofi.yoffset: 0
 rofi.xoffset: 0
