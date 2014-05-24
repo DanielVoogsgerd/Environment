@@ -1,0 +1,28 @@
+#!/bin/sh
+export ENVIRONMENT="$HOME/ENVIRONMENT"
+export PATH="$PATH:$ENVIRONMENT/bin"
+
+export XDG_DATA_HOME="$HOME/.local/share"
+export XDG_DATA_DIRS="/usr/local/share/:/usr/share/"
+
+if [ -f ${XDG_CONFIG_HOME:-~/.config}/user-dirs.dirs ]; then
+    . ${XDG_CONFIG_HOME:-~/.config}/user-dirs.dirs
+    export XDG_DESKTOP_DIR XDG_DOWNLOAD_DIR XDG_TEMPLATES_DIR XDG_PUBLICSHARE_DIR XDG_DOCUMENTS_DIR XDG_MUSIC_DIR XDG_PICTURES_DIR XDG_VIDEOS_DIR
+fi
+
+feh --bg-scale .i3/wallpaper.jpg
+
+[[ -f ~/.Xresources ]] && xrdb -merge "${HOME}/.Xresources"
+/usr/bin/ssh-agent
+/usr/bin/gnome-keyring-daemon --start --components=gpg,pkcs11,secrets,ssh
+export SSH_ASKPASS="/usr/bin/gnome-keyring"
+export SSH_AUTH_SOCK
+export GPG_AGENT_INFO
+export GNOME_KEYRING_CONTROL
+export GNOME_KEYRING_PID
+
+# Swapcaps
+/usr/bin/setxkbmap -option 'ctrl:swapcaps'
+
+# I sure do like some compositing
+/usr/bin/xcompmgr -n &

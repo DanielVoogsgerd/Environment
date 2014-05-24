@@ -1,1 +1,3 @@
 Xresources => ~/.Xresources
+xinitrc => ~/.xinitrc
+xprofile => ~/.xprofile
