@@ -1,0 +1,84 @@
+#!/bin/sh
+function selectDisplay {
+    displays=`xrandr | grep '\(dis\)\?connected' | awk '{ print $1 " (" $2 ")" }'`
+    display=`echo "$displays" | rofi -dmenu -p Display | awk '{ print $1 }'`
+
+    [ -z "$display" ] && exit 1
+
+    if [ "$1" = "output" ]; then
+        output="$display"
+    elif [ "$1" = "relative" ]; then
+        relative="$display"
+    else
+        echo "Something went wrong"
+        exit 1
+    fi
+}
+
+function selectAction {
+    action=`echo -n "Select mode
+Set position
+Disable display
+Make primary" | rofi -dmenu -p "Select action"`
+}
+
+function getModi {
+    modi="`xrandr -q | sed -n '/'$output'/,/connected/p' | grep '^  ' | sed -e 's/^ *//' -e 's/ *$//' `"
+}
+
+function main {
+    selectDisplay output
+    selectAction
+    case $action in
+        "Disable display")
+            xrandr --output $output --off
+        ;;
+        "Select mode")
+            getModi $output
+            modus=`echo -n "auto
+$modi" | rofi -dmenu -p Modus | awk '{ print $1 }'`
+
+            if [ -z "$modus" ]; then
+                exit 1
+            elif [ "$modus" = "auto" ]; then
+                xrandr --output $output --auto
+            else
+                xrandr --output $output --mode $modus
+            fi
+        ;;
+        "Set position")
+            position=`echo -n "left of
+above
+right of
+below" | rofi -dmenu -p "Set position"`
+
+            [ -z "$position" ] && exit 1
+
+            selectDisplay relative
+            case "$position" in
+                "left of")
+                    xrandr --output $output --left-of $relative
+                ;;
+                "above")
+                    xrandr --output $output --above $relative
+                ;;
+                "right of")
+                    xrandr --output $output --right-of $relative
+                ;;
+                "below")
+                    xrandr --output $output --below $relative
+                ;;
+            esac
+        ;;
+        "Make primary")
+            xrandr --output $output --primary
+        ;;
+    esac
+
+    echo $output
+    echo $action
+    echo $position
+    echo $relative
+}
+
+main
