@@ -1,18 +1,11 @@
 #!/bin/sh
 function selectDisplay {
-    displays=`xrandr | grep '\(dis\)\?connected' | awk '{ print $1 " (" $2 ")" }'`
-    display=`echo "$displays" | rofi -dmenu -p Display | awk '{ print $1 }'`
+    local displays=`xrandr | grep '\(dis\)\?connected' | awk '{ print $1 " (" $2 ")" }'`
+    local display="`echo \"$displays\" | rofi -dmenu -p Display`"
 
     [ -z "$display" ] && exit 1
 
-    if [ "$1" = "output" ]; then
-        output="$display"
-    elif [ "$1" = "relative" ]; then
-        relative="$display"
-    else
-        echo "Something went wrong"
-        exit 1
-    fi
+    echo $display | awk '{ print $1 }'
 }
 
 function selectAction {
@@ -20,58 +13,178 @@ function selectAction {
 Set position
 Disable display
 Make primary" | rofi -dmenu -p "Select action"`
+
+    echo "$action"
+}
+
+function mainMenu {
+    option=`echo 'Select display
+Select profile' | rofi -dmenu -p 'Drandr'`
+
+    echo $option
+}
+
+function getProfiles {
+    profiles="`find '.drandr/profile/' -mindepth 1 -maxdepth 1 -type f -print0 | xargs -0 -i echo '{}' | awk -F'/' '{print $NF }' | awk -F '.' '{ print $1 }'`"
+}
+
+function setProfile {
+    local profile="$1"
+
+    if [ -f ".drandr/profile/$profile.profile" ]; then
+        echo "Setting profile $profile"
+
+        # Read profile line by line
+        while read line
+        do
+            echo "Execute \"$line\""
+
+            output=`echo $line | awk '{ print $1 }'`
+            action=`echo $line | awk '{ print $2 }'`
+
+            [ -z "$action" ] && action="auto"
+
+            case $action in
+                left-of|right-of|above|left-of)
+                    relative=`echo $line | awk '{ print $3 }'`
+                    echo "Setting position $output $action $relative"
+
+                    xrandr --output $output --$action $relative
+
+                ;;
+                auto)
+                    xrandr --output $output --auto
+                ;;
+
+                primary)
+                    xrandr --output $output --primary
+                ;;
+            esac
+
+        done < "$HOME/.drandr/profile/$profile.profile"
+    else
+        echo "Profile does not exist"
+        selectProfile
+    fi
+}
+
+function selectProfile {
+    getProfiles
+
+    echo -n "$profiles" | rofi -dmenu -p "Select profile"
+
+    [ -z "$profile" ] && exit 1
 }
 
 function getModi {
+    local output="$1"
+
     modi="`xrandr -q | sed -n '/'$output'/,/connected/p' | grep '^  ' | sed -e 's/^ *//' -e 's/ *$//' `"
+    echo "$modi"
 }
 
-function main {
-    selectDisplay output
-    selectAction
-    case $action in
-        "Disable display")
-            xrandr --output $output --off
-        ;;
-        "Select mode")
-            getModi $output
-            modus=`echo -n "auto
-$modi" | rofi -dmenu -p Modus | awk '{ print $1 }'`
+function setMode {
+    local output="$1"
+    local mode="$2"
 
-            if [ -z "$modus" ]; then
-                exit 1
-            elif [ "$modus" = "auto" ]; then
-                xrandr --output $output --auto
-            else
-                xrandr --output $output --mode $modus
-            fi
+    if [ "$mode" = "auto" ]; then
+        xrandr --output $output --auto
+    else
+        xrandr --output $output --mode $mode
+    fi
+}
+
+function selectMode {
+    local output="$1"
+    local modi=`getModi $output`
+
+    mode=`echo -n "auto
+$modi" | rofi -dmenu -p Modus | awk '{ print $1 }'`
+    echo "$mode"
+}
+
+function disableDisplay {
+    local output="$1"
+
+    xrandr --output $output --off
+}
+
+function setPosition {
+    local output="$1"
+    local position="$2"
+    local relative="$3"
+
+    case "$position" in
+        "left of")
+            xrandr --output $output --left-of $relative
         ;;
-        "Set position")
-            position=`echo -n "left of
+        "above")
+            xrandr --output $output --above $relative
+        ;;
+        "right of")
+            xrandr --output $output --right-of $relative
+        ;;
+        "below")
+            xrandr --output $output --below $relative
+        ;;
+    esac
+
+}
+
+function selectPosition {
+    position=`echo -n "left of
 above
 right of
 below" | rofi -dmenu -p "Set position"`
 
-            [ -z "$position" ] && exit 1
+    [ -z "$position" ] && exit 1
 
-            selectDisplay relative
-            case "$position" in
-                "left of")
-                    xrandr --output $output --left-of $relative
+    echo "$position"
+}
+
+function setPrimary {
+    local output="$1"
+
+    xrandr --output $output --primary
+}
+
+function main {
+    case `mainMenu` in
+        "Select display")
+            output=`selectDisplay`
+            action=`selectAction`
+
+            case $action in
+                "Disable display")
+                    disableDisplay
+                    main
                 ;;
-                "above")
-                    xrandr --output $output --above $relative
+                "Select mode")
+                    mode=`selectMode $output`
+
+                    [ -z "$mode" ] && exit 1
+
+                    setMode $output $mode
+                    main
                 ;;
-                "right of")
-                    xrandr --output $output --right-of $relative
+                "Set position")
+                    position=`selectPosition`
+                    relative=`selectDisplay`
+
+                    [ -z "$position" ] && exit 1
+
+                    setPosition $output $position $relative
+                    main
                 ;;
-                "below")
-                    xrandr --output $output --below $relative
+                "Make primary")
+                    setPrimary $output
+                    main
                 ;;
             esac
         ;;
-        "Make primary")
-            xrandr --output $output --primary
+        "Select profile")
+            profile=`selectProfile`
+            setProfile $profile
         ;;
     esac
 
