@@ -26,5 +26,3 @@ VISUAL="subl3"
 export LANG="en_GB.UTF-8"
 export EDITOR VISUAL GIT_EDITOR
 export JAVA_HOME="/opt/java"
-
-export PATH=$ENVIRONMENT/bin:$PATH
