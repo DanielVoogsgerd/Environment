@@ -1,2 +1,10 @@
 php|http://www.php.net/%s
 wordpress|http://codex.wordpress.org/%s
+webplatform|http://docs.webplatform.org/w/index.php?search=%s
+reddit|http://www.reddit.com/search?q=%s
+youtube|https://www.youtube.com/results?search_query=%s
+maps|https://www.google.com/maps/search/%s
+wikipedia|http://en.wikipedia.org/w/index.php?search=%s
+translate|https://translate.google.nl/#auto/auto/%s
+imdb|http://www.imdb.com/find?q=%s
+wolframalpha|https://www.wolframalpha.com/input/?i=%s
