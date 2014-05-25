@@ -156,7 +156,7 @@ function main {
 
             case $action in
                 "Disable display")
-                    disableDisplay
+                    disableDisplay $output
                     main
                 ;;
                 "Select mode")
@@ -187,11 +187,6 @@ function main {
             setProfile $profile
         ;;
     esac
-
-    echo $output
-    echo $action
-    echo $position
-    echo $relative
 }
 
 main
