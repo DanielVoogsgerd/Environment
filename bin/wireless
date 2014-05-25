@@ -1,0 +1,30 @@
+#!/bin/bash
+interface=`netstat -i | awk 'NR>2{print $1}' | grep ^wl`
+
+case "$1" in
+    ip)
+        # Get ip address
+        ip=`ip -f inet addr show $interface | grep inet | awk '{print $2}' | awk -F'/' '{ print $1 }' | sed ':a;N;$!ba;s/\n/ /g'`
+        echo $ip
+    ;;
+    quality)
+        # Get connection quality
+        q=`iwconfig "$interface" | grep Quality | awk '{print $2}' | awk -F"=" '{ print $2 }'`
+        quality_now=${q%%/*}
+        quality_max=${q##*/}
+        q_percent=`bc <<< "$quality_now*100/$quality_max"`
+        echo $q_percent%
+    ;;
+    all)
+        echo "Wireless: `wireless ip` (quality: `wireless quality`)"
+    ;;
+    *)
+        echo "Command does not exist. Try:"
+        echo "wireless [information]"
+        echo "         ip             Get the wireless IPs"
+        echo "         quality        Get the wireless signal quality"
+    ;;
+esac
+
+
+
