@@ -11,7 +11,7 @@ BMS=`php $ENVIRONMENT/bin/parseBookmarks.php`
 while read -r line; do
     BMSN="$BMSN"$'\n'`echo $line | awk 'BEGIN { FS = ";s;" } { print $1 }'`
 done <<< "$BMS"
-GS=`echo "$BMSN" | $DMENU $*`
+GS=`echo -n "$BMSN" | $DMENU $*`
 
 echo "Input: $GS"
 

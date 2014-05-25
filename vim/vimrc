@@ -47,6 +47,8 @@ set dir=/tmp
 
 " Remaps
 nnoremap ; :
+noremap jj <Esc>:w<CR>
+inoremap ;; <End>;<Esc>:w<CR>
 
 " I'm switching to PSR, so I'm switching for tab's to 4 spaces.
 let s:tabwidth=4
@@ -82,6 +84,9 @@ hi LineNr term=bold cterm=NONE ctermfg=DarkGrey ctermbg=NONE gui=NONE guifg=Dark
 nmap ;s  :set invspell spelllang=en<CR>
 nmap ;ss :set invspell spelllang=en-basic<CR>
 nmap ;sd :set invspell spelllang=nl<CR>
+
+" Write 
+cmap w!! w !sudo tee > /dev/null %
 
 " Map CTRL-K to a list diagraph without losing context
 inoremap <expr> <C-K> ShowDigraphs()

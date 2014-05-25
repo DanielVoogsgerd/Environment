@@ -43,3 +43,6 @@ alias cbssh="cbf ~/.ssh/id_rsa.pub"
 alias cbwd="pwd | cb"
 # Copy most recent command in bash history
 alias cbhs = "tail -n1 $HISTFILE | cb"
+
+alias pbcopy='xclip -selection clipboard'
+alias pbpaste='xclip -selection clipboard -o'
