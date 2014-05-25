@@ -181,19 +181,18 @@ bindsym $mod+r mode "resize"
 # Start i3bar to display a workspace bar (plus the system information pii3status
 # finds out, if available)
 bar {
-#    status_command i3status --config ~/.i3/status.conf
+  #    status_command i3status --config ~/.i3/status.conf
     status_command i3blocks -c ~/.i3/i3blocks.conf
     font pango:Meslo LG S 9
-
-    colors {
-        background #2d2d2d
-        statusline #00ff00
-
-        focused_workspace  #ffffff #285577
-        active_workspace   #ffffff #333333
-        inactive_workspace #888888 #222222
-        urgent_workspace   #ffffff #900000
-    }
+  colors {
+    separator #666666
+    background #222222
+    statusline #0088CC
+    focused_workspace #0088CC #0088CC #ffffff
+    active_workspace #333333 #333333 #ffffff
+    inactive_workspace #333333 #333333 #888888
+    urgent_workspace #2f343a #900000 #ffffff
+  }
 }
 
 exec nm-applet
@@ -210,6 +209,8 @@ exec xfce4-volumed-pulse
 bindsym $mod+o exec i3lock-wrapper
 bindsym Print exec teiler
 
-client.unfocused        #333333 #2d2d2d #dedede
-client.focused          #333333 #2d2d2d #00FF00
-client.focused_inactive #333333 #2d2d2d #dedede
+hide_edge_borders both
+client.focused #0088CC #0088CC #ffffff #dddddd
+client.focused_inactive #333333 #333333 #888888 #292d2e
+client.unfocused #333333 #333333 #888888 #292d2e
+client.urgent #2f343a #900000 #ffffff #900000
