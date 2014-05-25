@@ -98,3 +98,7 @@ function server {
     xdg-open "http://localhost:$PORT/"
     php -S localhost:$PORT
 }
+
+function bak {
+    mv "$1" "$1.bak"
+}
