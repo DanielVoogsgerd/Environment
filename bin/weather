@@ -1,0 +1,7 @@
+#!/bin/bash
+data=$(curl "http://api.openweathermap.org/data/2.5/weather?q=Enschede,nl" 2>/dev/null)
+
+temp=$(echo -n "$data" | jsawk 'return this.main.temp')
+main=$(echo -n "$data" | jsawk 'return this.weather[0].main')
+
+echo "$temp Kelvin and $main"
