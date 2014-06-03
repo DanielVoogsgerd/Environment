@@ -3,9 +3,13 @@
 	"caret_style": "phase",
 	"color_scheme": "Packages/User/base16-eighties.dark (SL).tmTheme",
 	"font_face": "Meslo LG S",
-	"font_size": 11,
+	"font_size": 10,
 	"highlight_line": true,
-	"ignored_packages": [],
+	"ignored_packages":
+	[
+		"JavaScript",
+		"Vintage"
+	],
 	"line_padding_bottom": 3,
 	"line_padding_top": 3,
 	"theme": "Spacegray Eighties.sublime-theme"
