@@ -1,0 +1,101 @@
+#!/bin/bash
+error="FF0000"
+function getInterface {
+    case "$1" in
+        wireless)
+            netstat -i | awk 'NR>2{print $1}' | grep ^wl
+        ;;
+        ethernet)
+            netstat -i | awk 'NR>2{print $1}' | grep ^en
+        ;;
+        *) echo "Interface not recognized"; exit 1
+    esac
+}
+
+function getIP {
+    local ip=`ip -f inet addr show $interface | grep inet | awk '{print $2}' | awk -F'/' '{ print $1 }' | sed ':a;N;$!ba;s/\n/ /g'`
+
+    echo -n "$ip"
+}
+
+function getQuality {
+    local q=`iwconfig "$interface" | grep Quality | awk '{print $2}' | awk -F"=" '{ print $2 }'`
+    local quality_now=${q%%/*}
+    local quality_max=${q##*/}
+    local quality=`bc <<< "$quality_now*100/$quality_max"`
+
+    echo -n "$quality"
+}
+
+function getSSID {
+    local SSID=`iwgetid -r`
+    # local SSID=iwconfig | grep "$interface" | awk -F'"' ' { print $2 }'
+    echo -n $SSID
+}
+
+function Output {
+    local ip=$(getIP)
+
+    if [ -z "$ip" ]; then
+        echo "Down"
+        echo "Down"
+        echo "$error"
+        exit
+    fi
+
+    case "$1" in
+        wireless)
+            echo "$ip (quality: $(getQuality) of $(getSSID))"
+        ;;
+        ethernet)
+            echo "$ip"
+        ;;
+    esac
+}
+
+interface=`getInterface $1`
+
+
+if [ -z "$interface" ]; then
+    echo "Down"
+    echo "Down"
+    echo "$error"
+    exit
+fi
+
+if [[ "$1" != "ethernet" ]] && [[ "$1" != "wireless" ]]; then
+    echo "Unsupported network device"
+    exit 1
+fi
+
+
+case "$2" in
+    ip)
+        # Get ip address
+        getIP $interface
+    ;;
+    quality)
+        # Get connection quality
+        case "$1" in
+            wireless)
+                getQuality $interface
+            ;;
+            ethernet)
+                echo "Operation not supported on a ethernet device"
+            ;;
+        esac
+    ;;
+    SSID)
+        case "$1" in
+            wireless)
+                getSSID $interface
+            ;;
+            ethernet)
+                echo "Operation not supported on a ethernet device"
+            ;;
+        esac
+    ;;
+    *)
+        Output $1
+   ;;
+esac
