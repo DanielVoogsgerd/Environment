@@ -3,6 +3,7 @@
 HISTFILE=/tmp/.gshist
 COMPLETION=false
 
+DMENU='rofi -dmenu -p Google -i'
 if [ -f $HOME/.dmenurc ]; then
   . $HOME/.dmenurc
 else

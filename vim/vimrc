@@ -47,7 +47,7 @@ set dir=/tmp
 
 " Remaps
 nnoremap ; :
-noremap jj <Esc>:w<CR>
+inoremap jj <Esc>
 inoremap ;; <End>;<Esc>:w<CR>
 
 " I'm switching to PSR, so I'm switching for tab's to 4 spaces.
