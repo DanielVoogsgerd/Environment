@@ -126,11 +126,12 @@ class symlink:
 
             else:
                 # Finally create the symlink
-                print ('Linking ' + file + ' to ' + dest)
-                os.symlink(file, dest)
-                print ('Symlink created!')
-
-
+                try:
+                    print ('Linking ' + file + ' to ' + dest)
+                    os.symlink(file, dest)
+                    print ('Symlink created!')
+                except OSError:
+                    print("Symlink couldn't be created")
 
             print ('--------------------')
 
