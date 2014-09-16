@@ -102,3 +102,14 @@ function server {
 function bak {
     mv "$1" "$1.bak"
 }
+
+function edit {
+    FILE=$1
+    if [ -w "$FILE" ]; then
+        echo "Write permission is granted on $FILE"
+        $EDITOR $FILE
+    else
+        echo "Write permission is NOT granted on $FILE"
+        sudo $EDITOR $FILE
+    fi
+}
