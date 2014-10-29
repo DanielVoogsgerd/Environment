@@ -9,3 +9,6 @@
 [submodule "vundle"]
 	path = vim/vim/bundle/vundle
 	url = git://github.com/gmarik/vundle.git
+[submodule "zsh/zsh-autosuggestions"]
+	path = zsh/zsh-autosuggestions
+	url = git://github.com/tarruda/zsh-autosuggestions
