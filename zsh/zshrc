@@ -6,6 +6,9 @@ export ENVIRONMENT=$HOME/Environment
 ZSH=$ENVIRONMENT/zsh
 cdir=$ENVIRONMENT/.cdir
 
+export PATH="$PATH:$ENVIRONMENT/bin:$HOME/.composer/vendor/bin"
+export OS=$(lsb_release -si)
+
 if [ -f $ENVIRONMENT/userspecific/zsh/before.zsh ]; then
     echo "Loading user settings (Before)"
     source $ENVIRONMENT/userspecific/zsh/before.zsh
