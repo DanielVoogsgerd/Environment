@@ -3,4 +3,4 @@ if [ -f $HOME/.nvm/nvm.sh ]; then
 fi
 . $ENVIRONMENT/zsh/z/z.sh
 
-swapcaps
+#swapcaps
