@@ -1,5 +1,8 @@
-# Typing your own name to hop to the homedir is awesome
-alias "$USER"="cd /home/$USER/"
+# cd to users homedir, by using their name
+for homedir in /home/*/; do
+    user=$(echo "$homedir" | awk -F"/" '{ print $3 }' )
+    alias "$user"="cd /home/$user/"
+done
 
 # Use aliasses when using sudo
 alias sudo="sudo "
