@@ -1,6 +1,9 @@
 # Typing your own name to hop to the homedir is awesome
 alias "$USER"="cd /home/$USER/"
 
+# Use aliasses when using sudo
+alias sudo="sudo "
+
 # Better listing
 alias ls="ls --color=auto -h -F"
 alias la="ls -lAh"
