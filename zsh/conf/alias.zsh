@@ -33,14 +33,12 @@ alias "......."="cd ../../../../../../"
 alias g="git"
 
 # Really short aliases, for basic operations
-alias s="subl3"
+alias e="edit"
 alias t="tree"
 alias d="tree -d"
-alias v="vim"
 alias n="touch"
 alias clip="xclip -sel clip"
 alias c='pygmentize -O style=monokai -f console256 -g'
-alias extract="dtrx"
 alias ':q'='exit'
 alias open="xdg-open"
 
