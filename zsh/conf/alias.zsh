@@ -19,7 +19,7 @@ alias cl="clear"
 alias cls="clear && ls -h"
 
 # Moving verbose will show you what files are being moved. It is the most progressslike you're gonnna get.
-alias mv="mv -v"
+alias mv="mv -vi"
 
 # Quick backwards dir hopping
 alias ".."="cd ../"
