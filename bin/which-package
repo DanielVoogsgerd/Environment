@@ -1,0 +1,52 @@
+#!/bin/sh
+
+dist="testing"
+section="main"
+grep=""
+
+usage() {
+	echo "Usage: which-package [--dist dist] [--section section] file"
+	exit 1
+}
+
+until [ -z "$1" ]; do
+	case "$1" in
+		-d|--dist|--distribution)
+			dist="$2"
+			shift 2
+			;;
+		-s|--section)
+			section="$2"
+			shift 2
+			;;
+		*)
+			if [ -n "$grep" ]; then
+				usage
+			fi
+
+			grep="$1"
+			shift
+			;;
+	esac
+done
+
+if [ -z "$grep" ]; then
+	usage
+fi
+
+if [ ! "${grep#/}" = "$grep" ]; then
+	echo "WARNING: Do not specify the leading slash for absolute paths" >&2
+fi
+
+arch=$(dpkg --print-architecture)
+if [ -e /tmp/which-package-Contents-${dist}-${section}-${arch}.gz ]; then
+	gunzip -c /tmp/which-package-Contents-${dist}-${section}-${arch}.gz | grep "$grep"
+else
+	free=$(df -Pm /tmp | tail -1 | awk '{print $4}')
+	if [ "$free" -gt "100" ]; then
+		wget -q http://ftp.nl.debian.org/debian/dists/${dist}/${section}/Contents-${arch}.gz -O/tmp/which-package-Contents-${dist}-${section}-${arch}.gz
+		gunzip -c /tmp/which-package-Contents-${dist}-${section}-${arch}.gz | grep "$grep"
+	else
+		wget -q http://ftp.nl.debian.org/debian/dists/${dist}/${section}/Contents-${arch}.gz -O- | gunzip | grep "$grep"
+	fi
+fi
