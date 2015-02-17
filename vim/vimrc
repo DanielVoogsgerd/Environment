@@ -1,12 +1,12 @@
 set nocompatible               " be iMproved
 filetype off                   " required!
 
-set rtp+=~/.vim/bundle/vundle
-call vundle#rc()
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
 
 " let Vundle manage Vundle
 " required!
-Bundle 'gmarik/vundle'
+Bundle 'gmarik/Vundle.vim'
 
 " Personal bundles
 Bundle 'tpope/vim-fugitive'
@@ -24,7 +24,7 @@ Bundle 'sickill/vim-monokai'
 Bundle 'PotatoesMaster/i3-vim-syntax'
 Bundle 'atweiden/vim-hudigraphs'
 
-
+call vundle#end()
 " End bundles
 
 filetype plugin indent on
