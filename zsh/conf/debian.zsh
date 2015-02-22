@@ -1,10 +1,6 @@
 #!/usr/bin/zsh
 
 if [[ "$OS" == "Debian" ]]; then
-    if exist apt; then
-        alias apt-get="echo \"Stop doing that already, I've been replaced by apt.\""
-        alias apt-cache="echo \"Stop doing that already, I've been replaced by apt.\""
-    fi
 
     function changelog() {
         local location="/usr/share/doc/$1/changelog.Debian.gz"
