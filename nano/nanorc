@@ -1,0 +1,26 @@
+## Appearently nano has a configfile. And altough I despice this horrible piece
+## of software, every now and then, I'm forced to used this monster.
+## This file is all about damage control.
+
+
+# Yay behaviour that vim has by default...
+set const
+
+# Yes why is that line there in the first place.
+set morespace
+
+# Well, if we're are using nano, we might as well enable mouse input.
+set mouse
+
+# Holy shit. This has been annoying me for years...
+unset nowrap
+set smooth
+
+# Again default vim behaviour
+set smarthome
+
+# Yeshhh, I really need to learn how make use of suspension.
+set suspend
+
+# OMG why isn't this default yet?
+set tabsize 4
