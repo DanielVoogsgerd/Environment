@@ -65,9 +65,9 @@ elif [[ "$USER" == "root" ]]; then
 fi
 
 if [[ "$SSH_CONNECTED_HOST" == ":0" || "$SSH_CONNECTED_HOST" == ":0.0" ]]; then
-    PROMPT+='%{%F{005}%}%m%f'
+	clc_hostname="005"
 else
-    PROMPT+='%{%F{009}%}%m'
+	clc_hostname="009"
 fi
 
 function prompt() {
