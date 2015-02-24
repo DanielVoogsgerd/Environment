@@ -20,6 +20,7 @@ function sudo {
         /usr/bin/sudo "$@"
     fi
 }
+
 function die() {
    echo $1
    return 1
@@ -153,8 +154,7 @@ function calc() {
 	else
 		printf "$result";
 	fi;
-	printf "
-";
+	printf "\n";
 }
 
 function digga {
@@ -174,3 +174,58 @@ function digga {
 	
 	dig +nocmd "$domain" "$type" +multiline +noall +answer;
 }
+
+
+# `tre` is a shorthand for `tree` with hidden files and color enabled, ignoring
+# the `.git` directory, listing directories first. The output gets piped into
+# `less` with options to preserve color and line numbers, unless the output is
+# small enough for one screen.
+function tre() {
+	tree -aC -I '.git|node_modules|bower_components' --dirsfirst "$@" | less -FRNX;
+}
+
+function codepoint() {
+	perl -e "use utf8; print sprintf('U+%04X', ord(\"$@\"))";
+	# print a newline unless we’re piping the output to another program
+	if [ -t 1 ]; then
+		echo ""; # newline
+	fi;
+}
+
+function json() {
+	if [ -t 0 ]; then # argument
+		python -mjson.tool <<< "$*" | pygmentize -l javascript;
+	else # pipe
+		python -mjson.tool | pygmentize -l javascript;
+	fi;
+}
+
+function gz() {
+	if [ -z "$1" ]; then
+		echo "No file specified"
+		echo "Usage: $0 [file]"
+		return 1
+	fi
+	if [ ! -f "$1" ]; then
+		echo "File '$1' not found"
+		echo "Usage: $0 [file]"
+		return 1
+	fi
+
+	local origsize=$(wc -c < "$1");
+	local gzipsize=$(gzip -c "$1" | wc -c);
+	local ratio=$(echo "$gzipsize * 100 / $origsize" | bc -l);
+	echo "Filesize comparison"
+	printf "Original:          %d bytes\n" "$origsize";
+	printf "Compressed (gzip): %d bytes (%2.2f%%)\n" "$gzipsize" "$ratio";
+}
+
+function gitio() {
+	if [ -z $1 ]; then
+		echo "Usage: $0 [github url]";
+		return 1;
+	fi;
+	curl -i http://git.io/ -F "url=$1" 2>&1 > /dev/null | grep ^Location | awk '{ print $2 }' | 
+cb
+}
+
