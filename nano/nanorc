@@ -9,9 +9,6 @@ set const
 # Yes why is that line there in the first place.
 set morespace
 
-# Well, if we're are using nano, we might as well enable mouse input.
-set mouse
-
 # Holy shit. This has been annoying me for years...
 unset nowrap
 set smooth
