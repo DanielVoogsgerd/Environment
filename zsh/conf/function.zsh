@@ -13,6 +13,18 @@ function fuck {
     fi
 }
 
+function sudo {
+    if [[ "$1" == "vim" ]]; then
+        echo "Please stop doing that! Use sudoedit instead"
+    else
+        /usr/bin/sudo "$@"
+    fi
+}
+function die() {
+   echo $1
+   return 1
+}
+
 function killuser {
     skill -KILL -u "$1"
 }
@@ -55,7 +67,11 @@ function sambamount {
 }
 
 function exist {
-    return hash "$1" 2>/dev/null
+    if hash "$1" 2>/dev/null; then
+        return 0
+    else
+        return 1
+    fi
 }
 
 function pacver {
@@ -110,6 +126,7 @@ function edit {
         $EDITOR $FILE
     else
         echo "Write permission is NOT granted on $FILE"
-        sudo $EDITOR $FILE
+        if [[ "$EDITOR" == "vim" ]]
+            sudoedit $FILE
     fi
 }
