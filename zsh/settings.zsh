@@ -26,3 +26,6 @@ export VISUAL="gedit"
 export LANG="en_GB.UTF-8"
 export EDITOR VISUAL GIT_EDITOR
 export JAVA_HOME="/opt/java"
+
+# XDG Settings
+export XDG_CONFIG_HOME="$HOME/.config"
