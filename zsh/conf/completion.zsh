@@ -79,11 +79,3 @@ if [ "x$COMPLETION_WAITING_DOTS" = "xtrue" ]; then
     fi
 # }}}1
 
-source "$ENVIRONMENT/zsh/zsh-autosuggestions/autosuggestions.zsh"
-
-zle-line-init() {
-    zle autosuggest-start
-}
-
-zle -N zle-line-init
-
