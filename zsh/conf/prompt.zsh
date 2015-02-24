@@ -10,8 +10,10 @@ PROMPT=$''
 setopt PROMPT_SUBST
 if [[ "$USER" == "root" ]]; then
     PROMPT+='%{%F{001}%}%n'
-else
+elif [[ "$USER" == "daniel" ]]; then
     PROMPT+='%{%F{002}%}%n'
+else
+    PROMPT+='%{%F{011}%}%n'
 fi
 PROMPT+='%{%F{004}%}@'
 if [[ "$SSH_CONNECTED_HOST" == ":0" || "$SSH_CONNECTED_HOST" == ":0.0" ]]; then
@@ -44,6 +46,41 @@ function title() {
             ;;
     esac
 }
+
+function gen_clc() {
+    echo "%{%F{$1}%}"
+}
+
+clc_default="004"
+clc_name="011"
+clc_hostname="005"
+clc_path="004"
+clc_reset="$reset_color"
+clc_end="015"
+
+if [[ "$USER" == "$username" ]]; then
+    clc_name="002"
+elif [[ "$USER" == "root" ]]; then
+    clc_name="001"
+fi
+
+if [[ "$SSH_CONNECTED_HOST" == ":0" || "$SSH_CONNECTED_HOST" == ":0.0" ]]; then
+    PROMPT+='%{%F{005}%}%m%f'
+else
+    PROMPT+='%{%F{009}%}%m'
+fi
+
+function prompt() {
+    local PCLC_NAME=$(gen_clc "$clc_name")
+    local PCLC_DEFAULT=$(gen_clc "$clc_default")
+    local PCLC_HOSTNAME=$(gen_clc "$clc_hostname")
+    local PCLC_PATH=$(gen_clc "$clc_path")
+    local PCLC_RESET=$(gen_clc "$clc_reset")
+    local PCLC_END=$(gen_clc "$clc_end")
+
+    PROMPT="$PCLC_NAME%n$PCLC_DEFAULT@$PCLC_HOSTNAME%m%f $PCLC_PATH%~%f"'$(vcs_super_info)'"$PCLC_END $ "
+}
+prompt
 
 # precmd is called just before the prompt is printed
 function precmd() {
