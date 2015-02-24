@@ -52,7 +52,7 @@ inoremap ;; <End>;<Esc>:w<CR>
 
 " I'm switching to PSR, so I'm switching for tab's to 4 spaces.
 let s:tabwidth=4
-set expandtab
+" set expandtab
 set shiftwidth=4
 set softtabstop=4
 set tabstop=4
