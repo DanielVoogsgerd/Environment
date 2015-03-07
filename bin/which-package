@@ -2,6 +2,9 @@
 
 dist="testing"
 section="main"
+arch=$(dpkg --print-architecture)
+exact="false"
+flags=""
 grep=""
 
 usage() {
@@ -18,6 +21,14 @@ until [ -z "$1" ]; do
 		-s|--section)
 			section="$2"
 			shift 2
+			;;
+		-a|--arch|--architecture)
+			arch="$2"
+			shift 2
+			;;
+		-F|-e|--exact)
+			exact="true"
+			shift
 			;;
 		*)
 			if [ -n "$grep" ]; then
@@ -38,15 +49,21 @@ if [ ! "${grep#/}" = "$grep" ]; then
 	echo "WARNING: Do not specify the leading slash for absolute paths" >&2
 fi
 
-arch=$(dpkg --print-architecture)
+if [ "$exact" = "true" ]; then
+	grep="^$grep\s+"
+	flags="-E"
+fi
+
 if [ -e /tmp/which-package-Contents-${dist}-${section}-${arch}.gz ]; then
-	gunzip -c /tmp/which-package-Contents-${dist}-${section}-${arch}.gz | grep "$grep"
+	gunzip -c /tmp/which-package-Contents-${dist}-${section}-${arch}.gz | grep $flags "$grep" | tless
 else
 	free=$(df -Pm /tmp | tail -1 | awk '{print $4}')
 	if [ "$free" -gt "100" ]; then
-		wget -q http://ftp.nl.debian.org/debian/dists/${dist}/${section}/Contents-${arch}.gz -O/tmp/which-package-Contents-${dist}-${section}-${arch}.gz
-		gunzip -c /tmp/which-package-Contents-${dist}-${section}-${arch}.gz | grep "$grep"
+		echo "Downloading contents file" >&2
+		wget -q --show-progress http://ftp.nl.debian.org/debian/dists/${dist}/${section}/Contents-${arch}.gz -O/tmp/which-package-Contents-${dist}-${section}-${arch}.gz
+		gunzip -c /tmp/which-package-Contents-${dist}-${section}-${arch}.gz | grep $flags "$grep" | tless
 	else
-		wget -q http://ftp.nl.debian.org/debian/dists/${dist}/${section}/Contents-${arch}.gz -O- | gunzip | grep "$grep"
+		echo "Not enough memory to store contents file. Piping output instead of caching in /tmp" >&2
+		wget -q --show-progress http://ftp.nl.debian.org/debian/dists/${dist}/${section}/Contents-${arch}.gz -O- | gunzip | grep $flags "$grep" | tless
 	fi
 fi
