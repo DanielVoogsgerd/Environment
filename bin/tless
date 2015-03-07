@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 if [ -t 1 ]; then
 	exec less -FX
