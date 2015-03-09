@@ -6,26 +6,26 @@ call vundle#begin()
 
 " let Vundle manage Vundle
 " required!
-Bundle 'gmarik/Vundle.vim'
+Plugin 'gmarik/Vundle.vim'
 
-" Personal bundles
-Bundle 'tpope/vim-fugitive'
-Bundle 'tpope/vim-repeat'
-Bundle 'Lokaltog/vim-easymotion'
-Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
-Bundle 'L9'
-Bundle 'nginx.vim'
-Bundle 'FuzzyFinder'
-Bundle 'Align'
-Bundle 'tpope/vim-surround'
-Bundle 'altercation/vim-colors-solarized'
-Bundle 'chriskempson/base16-vim'
-Bundle 'sickill/vim-monokai'
-Bundle 'PotatoesMaster/i3-vim-syntax'
-Bundle 'atweiden/vim-hudigraphs'
+" Personal Plugins
+Plugin 'tpope/vim-fugitive'
+Plugin 'tpope/vim-repeat'
+Plugin 'Lokaltog/vim-easymotion'
+Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
+Plugin 'L9'
+Plugin 'nginx.vim'
+Plugin 'FuzzyFinder'
+Plugin 'Align'
+Plugin 'tpope/vim-surround'
+Plugin 'altercation/vim-colors-solarized'
+Plugin 'chriskempson/base16-vim'
+Plugin 'sickill/vim-monokai'
+Plugin 'PotatoesMaster/i3-vim-syntax'
+Plugin 'atweiden/vim-hudigraphs'
 
 call vundle#end()
-" End bundles
+" End Plugins
 
 filetype plugin indent on
 set t_Co=256
