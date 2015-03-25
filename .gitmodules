@@ -15,3 +15,6 @@
 [submodule "vim/vim/bundle/Vundle.vim"]
 	path = vim/vim/bundle/Vundle.vim
 	url = git@github.com:gmarik/Vundle.vim.git
+[submodule "shell/plugins/vcs"]
+	path = shell/plugins/vcs
+	url = git://github.com/yonchu/zsh-vcs-prompt.git

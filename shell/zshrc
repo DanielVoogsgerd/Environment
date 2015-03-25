@@ -1,0 +1,2 @@
+SHELLNAME="zsh"
+source ~/Environment/shell/shellrc
