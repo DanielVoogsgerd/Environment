@@ -229,3 +229,10 @@ function gitio() {
 cb
 }
 
+function tailgrep {
+	if [ -z $1 ] || [ -z $2 ]; then
+		echo "Usage: $0 [pattern] [file]"
+		return 1
+	fi
+	tail -f $2 | grep --line-buffered $1
+}
