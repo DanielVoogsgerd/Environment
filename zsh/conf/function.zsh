@@ -13,14 +13,6 @@ function fuck {
     fi
 }
 
-function sudo {
-    if [[ "$1" == "vim" ]]; then
-        echo "Please stop doing that! Use sudoedit instead"
-    else
-        /usr/bin/sudo "$@"
-    fi
-}
-
 function die() {
    echo $1
    return 1
