@@ -228,3 +228,12 @@ function tailgrep {
 	fi
 	tail -f $2 | grep --line-buffered $1
 }
+
+function env-update {
+	pushd ~/Environment > /dev/null
+	git pull
+	popd > /dev/null
+	pushd ~/Environment/userspecific > /dev/null
+	git pull
+	popd > /dev/null
+}
