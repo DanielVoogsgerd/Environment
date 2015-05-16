@@ -237,3 +237,7 @@ function env-update {
 	git pull
 	popd > /dev/null
 }
+
+function httptrace {
+	curl -vsL "$1" -o /dev/null 2>&1 | grep -v "^\*" | grep "Host\|HTTP\|Location" | cut -d " " -f 2-
+}
