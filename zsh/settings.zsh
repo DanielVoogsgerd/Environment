@@ -29,3 +29,6 @@ export JAVA_HOME="/opt/java"
 
 # XDG Settings
 export XDG_CONFIG_HOME="$HOME/.config"
+
+# Easy cding in projects
+export CDPATH="$HOME/Projects"
