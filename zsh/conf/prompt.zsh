@@ -78,7 +78,7 @@ function prompt() {
     local PCLC_RESET=$(gen_clc "$clc_reset")
     local PCLC_END=$(gen_clc "$clc_end")
 
-    PROMPT="$PCLC_NAME%n$PCLC_DEFAULT@$PCLC_HOSTNAME%m%f $PCLC_PATH%~%f"'$(vcs_super_info)'"$PCLC_END $ "
+	PROMPT="$PCLC_NAME%n$PCLC_DEFAULT@$PCLC_HOSTNAME%m%f $PCLC_PATH%~%f"'$(vcs_super_info_wrapper)'"$PCLC_END "'$(shell_icon)'" "
 }
 prompt
 

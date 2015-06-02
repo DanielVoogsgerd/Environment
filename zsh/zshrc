@@ -9,39 +9,50 @@ cdir=$ENVIRONMENT/.cdir
 export PATH="$PATH:$ENVIRONMENT/bin:$HOME/.composer/vendor/bin:./vendor/bin"
 export OS=$(lsb_release -si)
 
+function shell_log {
+	if [[ "$USER" != 'root' ]] || [[ $DEBUG == true ]]; then
+		echo $@
+	fi
+}
+
 if [ -f $ENVIRONMENT/userspecific/zsh/before.zsh ]; then
-    echo "Loading user settings (Before)"
+    shell_log "Loading user settings (Before)"
     source $ENVIRONMENT/userspecific/zsh/before.zsh
 fi
 
-echo "Loading general settings"
+shell_log "Loading general settings"
 [ -r "$ZSH/settings.zsh" ] && source "$ZSH/settings.zsh"
 
 # Loading imported libraries
-echo "Loading libraries"
+shell_log "Loading libraries"
 for file in $ZSH/lib/*.zsh; do
-    echo "Loading library: ($file)"
+    shell_log "Loading library: ($file)"
     [ -r "$file" ] && source "$file"
 done
 
 # Loading configs
-echo "Loading configs"
+shell_log "Loading configs"
 for file in $ZSH/conf/*.zsh; do
-    echo "Loading config: ($file)"
+    shell_log "Loading config: ($file)"
     [ -r "$file" ] && source "$file"
 done
 unset file
 
 if [ -f $ENVIRONMENT/userspecific/zsh/after.zsh ]; then
-    echo "Loading userspecific settings (after)"
+    shell_log "Loading userspecific settings (after)"
     source $ENVIRONMENT/userspecific/zsh/after.zsh
 fi
 
-[ -f $cdir ] && echo "cdir found (`cat $cdir`)" && cd "`cat $cdir`" && rm "$cdir"
-clear
+[ -f $cdir ] && shell_log "cdir found (`cat $cdir`)" && cd "`cat $cdir`" && rm "$cdir"
 
-if hash archey 2>/dev/null; then
-    archey
-elif hash screenfetch 2>/dev/null; then
-    screenfetch
+typeset -U path cdpath fpath
+
+if [[ "$USER" != 'root' ]]; then
+	clear
+
+	if hash archey 2>/dev/null; then
+		archey
+	elif hash screenfetch 2>/dev/null; then
+		screenfetch
+	fi
 fi

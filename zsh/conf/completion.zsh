@@ -31,7 +31,7 @@ zstyle ':completion:*:*:*:*:processes' command "ps -u `whoami` -o pid,user,comm 
 
 # disable named-directories autocompletion
 zstyle ':completion:*:cd:*' tag-order local-directories directory-stack path-directories
-cdpath=(.)
+#cdpath=(.)
 
 # use /etc/hosts and known_hosts for hostname completion
 [ -r /etc/ssh/ssh_known_hosts ] &&

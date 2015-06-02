@@ -64,3 +64,7 @@ alias whois="whois -h whois.geektools.com"
 # For people working with Laravel this is very useful
 alias art="php artisan"
 alias artisan="php artisan"
+alias cda="composer dumpautoload"
+alias lmigrate="artisan migrate"
+alias lseed="artisan db:seed"
+alias lmreset="artisan migrate:reset"

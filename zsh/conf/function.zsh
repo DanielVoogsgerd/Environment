@@ -241,3 +241,17 @@ function env-update {
 function httptrace {
 	curl -vsL "$1" -o /dev/null 2>&1 | grep -v "^\*" | grep "Host\|HTTP\|Location" | cut -d " " -f 2-
 }
+
+function vcs_super_info_wrapper {
+	if [[ "$(stat -f -c %T .)" != 'cifs' ]]; then
+		vcs_super_info
+	fi
+}
+
+function shell_icon {
+	if [[ "$(stat -f -c %T .)" == 'cifs' ]]; then
+		echo "☁"
+	else
+		echo "$"
+	fi
+}
