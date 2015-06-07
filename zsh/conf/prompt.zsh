@@ -4,7 +4,7 @@ for color in {000..255}; do
     FG[$color]="%{[38;5;${color}m%}"
     BG[$color]="%{[48;5;${color}m%}"
 done
-
+ 
 SSH_CONNECTED_HOST=`who am i | awk -F"[()]" '{print $2}'`
 PROMPT=$''
 setopt PROMPT_SUBST
@@ -78,7 +78,17 @@ function prompt() {
     local PCLC_RESET=$(gen_clc "$clc_reset")
     local PCLC_END=$(gen_clc "$clc_end")
 
-	PROMPT="$PCLC_NAME%n$PCLC_DEFAULT@$PCLC_HOSTNAME%m%f $PCLC_PATH%~%f"'$(vcs_super_info_wrapper)'"$PCLC_END "'$(shell_icon)'" "
+	PROMPT=""
+
+	if [[ "$USER" != "$username" ]]; then
+		PROMPT+="$PCLC_NAME%n"
+	fi
+
+	if [[ "$SSH_CONNECTED_HOST" != ":0" && "$SSH_CONNECTED_HOST" != ":0.0" && -z "$TMUX" ]]; then
+		PROMPT+="$PCLC_DEFAULT@$PCLC_HOSTNAME%m%f "
+	fi
+
+	PROMPT+="$PCLC_PATH%~%f"'$(vcs_super_info_wrapper)'"$PCLC_END "'$(shell_icon)'" "
 }
 prompt
 
