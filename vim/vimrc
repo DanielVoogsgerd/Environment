@@ -104,6 +104,8 @@ nnoremap <leader>gd :Gdiff<CR>
 nnoremap <leader>gc :Gcommit -q<CR>
 nnoremap <leader>gps :Dispatch! git push<CR>
 nnoremap <leader>gpl :Dispatch! git pull<CR>
+nnoremap <leader>go :Copen<CR>
+
 
 " Colourcolumn
 highligh ColorColumn ctermbg=darkgrey
