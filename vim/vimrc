@@ -9,20 +9,25 @@ call vundle#begin()
 Plugin 'gmarik/Vundle.vim'
 
 " Personal Plugins
+Plugin 'Align'
+Plugin 'FuzzyFinder'
+Plugin 'L9'
+Plugin 'Lokaltog/vim-easymotion'
+Plugin 'PotatoesMaster/i3-vim-syntax'
+Plugin 'altercation/vim-colors-solarized'
+Plugin 'atweiden/vim-hudigraphs'
+Plugin 'chriskempson/base16-vim'
+Plugin 'powerline/powerline', {'rtp': 'powerline/bindings/vim/'}
+Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
+Plugin 'sickill/vim-monokai'
+Plugin 'tpope/vim-dispatch'
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-repeat'
-Plugin 'Lokaltog/vim-easymotion'
-Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
-Plugin 'L9'
-Plugin 'nginx.vim'
-Plugin 'FuzzyFinder'
-Plugin 'Align'
 Plugin 'tpope/vim-surround'
-Plugin 'altercation/vim-colors-solarized'
-Plugin 'chriskempson/base16-vim'
-Plugin 'sickill/vim-monokai'
-Plugin 'PotatoesMaster/i3-vim-syntax'
-Plugin 'atweiden/vim-hudigraphs'
+Plugin 'trusktr/seti.vim'
+
+" Syntax plugins
+Plugin 'nginx.vim'
 
 call vundle#end()
 " End Plugins
@@ -30,11 +35,15 @@ call vundle#end()
 filetype plugin indent on
 set t_Co=256
 
+" Powerline is awesome
+set laststatus=2
+let g:Powerline_symbols = 'fancy'
+
 " Visual settings
 hi clear
 syntax on
 set background=dark
-colorscheme monokai
+colorscheme seti
 
 " Couple settings
 set number
@@ -50,9 +59,7 @@ nnoremap ; :
 inoremap jj <Esc>
 inoremap ;; <End>;<Esc>:w<CR>
 
-" I'm switching to PSR, so I'm switching for tab's to 4 spaces.
 let s:tabwidth=4
-" set expandtab
 set shiftwidth=4
 set softtabstop=4
 set tabstop=4
@@ -61,6 +68,42 @@ set tabstop=4
 set incsearch
 set ignorecase
 set hlsearch
+
+let mapleader = ","
+let g:mapleader = ","
+
+" Down is really the next line
+nnoremap j gj
+nnoremap k gk
+
+" Keybinds
+vmap <leader>so :sort u<CR>
+
+" Fast saves
+nmap <leader><leader>w :w!<cr>
+nmap <leader>p o<ESC>p
+
+" I paste a lot from my X11 clipboard
+nnoremap <leader>v "+p
+
+" With a map leader it's possible to do extra key combinations
+" Easymotion
+nmap s <Plug>(easymotion-w)
+
+" Fuzzyfinder keybindings
+nmap <leader>f :FufFileWithCurrentBufferDir<CR>
+nmap <leader>b :FufBuffer<CR>
+nmap <leader>t :FufTaggedFile<CR>
+
+" Git bindings
+nnoremap <leader>ga :Git add %:p<CR><CR>
+nnoremap <leader>gb :Gblame<CR>
+nnoremap <leader>gs :Gstatus<CR>
+nnoremap <leader>ge :Gedit<CR>
+nnoremap <leader>gd :Gdiff<CR>
+nnoremap <leader>gc :Gcommit -q<CR>
+nnoremap <leader>gps :Dispatch! git push<CR>
+nnoremap <leader>gpl :Dispatch! git pull<CR>
 
 " Colourcolumn
 highligh ColorColumn ctermbg=darkgrey
@@ -85,7 +128,7 @@ nmap ;s  :set invspell spelllang=en<CR>
 nmap ;ss :set invspell spelllang=en-basic<CR>
 nmap ;sd :set invspell spelllang=nl<CR>
 
-" Write 
+" Write
 cmap w!! w !sudo tee > /dev/null %
 
 " Map CTRL-K to a list diagraph without losing context
@@ -96,3 +139,5 @@ function! ShowDigraphs ()
     call getchar()
     return "\<C-K>"
 endfunction
+
+highlight NonText ctermbg=none
