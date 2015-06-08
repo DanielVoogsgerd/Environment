@@ -124,6 +124,11 @@ nnoremap <C-V>     v
 vnoremap    v   <C-V>
 vnoremap <C-V>     v
 
+onoremap <silent> i/ :<C-U>normal! T/vt/<CR> " inside /
+onoremap <silent> a/ :<C-U>normal! F/vf/<CR> " around /
+xnoremap <silent> i/ :<C-U>normal! T/vt/<CR> " inside /
+xnoremap <silent> a/ :<C-U>normal! F/vf/<CR> " around /
+
 " Line highlighting
 hi LineNr term=bold cterm=NONE ctermfg=DarkGrey ctermbg=NONE gui=NONE guifg=DarkGrey guibg=NONE
 
