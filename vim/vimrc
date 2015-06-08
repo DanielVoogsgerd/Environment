@@ -9,15 +9,16 @@ call vundle#begin()
 Plugin 'gmarik/Vundle.vim'
 
 " Personal Plugins
-Plugin 'Align'
-Plugin 'FuzzyFinder'
-Plugin 'L9'
-Plugin 'Lokaltog/vim-easymotion'
-Plugin 'PotatoesMaster/i3-vim-syntax'
+Plugin 'align'
+Plugin 'fuzzyfinder'
+Plugin 'l9'
+Plugin 'lokaltog/vim-easymotion'
+Plugin 'potatoesmaster/i3-vim-syntax'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'atweiden/vim-hudigraphs'
 Plugin 'chriskempson/base16-vim'
-Plugin 'powerline/powerline', {'rtp': 'powerline/bindings/vim/'}
+" Plugin 'powerline/powerline', {'rtp': 'powerline/bindings/vim/'}
+Plugin 'bling/vim-airline'
 Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
 Plugin 'sickill/vim-monokai'
 Plugin 'tpope/vim-dispatch'
@@ -37,7 +38,8 @@ set t_Co=256
 
 " Powerline is awesome
 set laststatus=2
-let g:Powerline_symbols = 'fancy'
+" let g:Powerline_symbols = 'fancy'
+let g:airline_powerline_fonts = 1
 
 " Visual settings
 hi clear
