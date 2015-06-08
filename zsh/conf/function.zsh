@@ -157,13 +157,13 @@ function digga {
 	else
 		local domain="$1"
 	fi
-	
+
 	if [ -z "$2" ]; then
 		local type="any"
 	else
 		local type="$2"
 	fi
-	
+
 	dig +nocmd "$domain" "$type" +multiline +noall +answer;
 }
 
@@ -217,8 +217,7 @@ function gitio() {
 		echo "Usage: $0 [github url]";
 		return 1;
 	fi;
-	curl -i http://git.io/ -F "url=$1" 2>&1 > /dev/null | grep ^Location | awk '{ print $2 }' | 
-cb
+	curl -i http://git.io/ -F "url=$1" 2>&1 > /dev/null | grep ^Location | awk '{ print $2 }' | cb
 }
 
 function tailgrep {
@@ -226,6 +225,7 @@ function tailgrep {
 		echo "Usage: $0 [pattern] [file]"
 		return 1
 	fi
+
 	tail -f $2 | grep --line-buffered $1
 }
 
@@ -236,6 +236,8 @@ function env-update {
 	pushd ~/Environment/userspecific > /dev/null
 	git pull
 	popd > /dev/null
+
+	vim +PluginInstall +qall
 }
 
 function httptrace {
