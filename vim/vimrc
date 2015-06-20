@@ -6,29 +6,28 @@ call vundle#begin()
 
 " let Vundle manage Vundle
 " required!
-Plugin 'gmarik/Vundle.vim'
+Plugin 'Gmarik/Vundle.vim'
 
 " Personal Plugins
-Plugin 'align'
-Plugin 'fuzzyfinder'
-Plugin 'l9'
-Plugin 'lokaltog/vim-easymotion'
-Plugin 'potatoesmaster/i3-vim-syntax'
-Plugin 'altercation/vim-colors-solarized'
-Plugin 'atweiden/vim-hudigraphs'
-Plugin 'chriskempson/base16-vim'
-" Plugin 'powerline/powerline', {'rtp': 'powerline/bindings/vim/'}
-Plugin 'bling/vim-airline'
-Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
-Plugin 'sickill/vim-monokai'
-Plugin 'tpope/vim-dispatch'
-Plugin 'tpope/vim-fugitive'
-Plugin 'tpope/vim-repeat'
-Plugin 'tpope/vim-surround'
-Plugin 'trusktr/seti.vim'
+Plugin 'Altercation/Vim-Colors-Solarized'
+Plugin 'Atweiden/Vim-Hudigraphs'
+Plugin 'Bling/Vim-Airline'
+Plugin 'ChrisKempson/Base16-vim'
+Plugin 'FuzzyFinder'
+Plugin 'Godlygeek/Tabular'
+Plugin 'L9'
+Plugin 'Lokaltog/Vim-Easymotion'
+Plugin 'Potatoesmaster/i3-Vim-Syntax'
+Plugin 'Rstacruz/Sparkup', {'rtp': 'vim/'}
+Plugin 'Sickill/Vim-Monokai'
+Plugin 'TPope/Vim-Dispatch'
+Plugin 'TPope/Vim-Fugitive'
+Plugin 'TPope/Vim-Repeat'
+Plugin 'TPope/Vim-Surround'
+Plugin 'Trusktr/Seti.vim'
 
 " Syntax plugins
-Plugin 'nginx.vim'
+Plugin 'NGiNX.vim'
 
 call vundle#end()
 " End Plugins
@@ -108,6 +107,11 @@ nnoremap <leader>gps :Dispatch! git push<CR>
 nnoremap <leader>gpl :Dispatch! git pull<CR>
 nnoremap <leader>go :Copen<CR>
 
+" Quick alignment with Tabular
+nmap <Leader>a= :Tabularize /=<CR>
+vmap <Leader>a= :Tabularize /=<CR>
+nmap <Leader>a: :Tabularize /:\zs<CR>
+vmap <Leader>a: :Tabularize /:\zs<CR>
 
 " Colourcolumn
 highligh ColorColumn ctermbg=darkgrey
@@ -124,6 +128,7 @@ nnoremap <C-V>     v
 vnoremap    v   <C-V>
 vnoremap <C-V>     v
 
+" Add slash seperated text object
 onoremap <silent> i/ :<C-U>normal! T/vt/<CR> " inside /
 onoremap <silent> a/ :<C-U>normal! F/vf/<CR> " around /
 xnoremap <silent> i/ :<C-U>normal! T/vt/<CR> " inside /
