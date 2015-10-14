@@ -257,3 +257,25 @@ function shell_icon {
 		echo "$"
 	fi
 }
+
+function offload {
+	if [[ -e $1 ]]; then
+		sudo mv $1 "/media/data/offload/$1"
+		ln -s "/media/data/offload/$1"
+	fi
+}
+
+function genssl {
+	if [ -z $1 ]; then
+		echo "No certname specified"
+		exit 1
+	fi
+
+	if [ -z $2 ]; then
+		local hash="sha512"
+	else
+		local hash="$2"
+	fi
+
+	openssl req -new -newkey rsa:4096 -"$hash" -nodes -keyout $1.key -out $1.csr
+}
