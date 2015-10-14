@@ -33,6 +33,8 @@ call vundle#end()
 " End Plugins
 
 filetype plugin indent on
+
+" We like colors :D
 set t_Co=256
 
 " Powerline is awesome
