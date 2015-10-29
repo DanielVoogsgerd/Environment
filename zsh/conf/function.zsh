@@ -279,3 +279,12 @@ function genssl {
 
 	openssl req -new -newkey rsa:4096 -"$hash" -nodes -keyout $1.key -out $1.csr
 }
+
+# Finds a matching file structure and tries to build for it
+function build {
+	if ls src/*.ino 1> /dev/null 2>&1; then
+		echo "Matched Arduino pattern"
+		ino clean
+		ino build
+	fi
+}
