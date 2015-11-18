@@ -1,0 +1,7 @@
+#!/bin/sh
+scrot /tmp/screen.png
+convert /tmp/screen.png -scale 5% -scale 2000% /tmp/screen.png
+convert /tmp/screen.png "$ENVIRONMENT/resources/lock.png" -geometry +896+536 -composite /tmp/screen.png
+convert /tmp/screen.png "$ENVIRONMENT/resources/lock.png" -geometry +2816+476 -composite /tmp/screen.png
+i3lock -u -i /tmp/screen.png
+rm /tmp/screen.png

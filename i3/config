@@ -46,7 +46,7 @@ bindsym $mod+i exec dacaur
 # installed.
 # bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
 
-exec xautolock -time 10 -locker 'i3lock-wrapper'
+exec xautolock -time 10 -locker 'lock'
 # change focus
 bindsym $mod+j focus left
 bindsym $mod+k focus down
@@ -207,7 +207,7 @@ bindsym $mod+n exec dmenu -b -i | ~/.i3/rename_workspace.py
 
 exec xfce4-volumed-pulse
 
-bindsym $mod+o exec i3lock-wrapper
+bindsym $mod+o exec lock
 bindsym Print exec teiler
 
 hide_edge_borders both
