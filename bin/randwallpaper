@@ -1,0 +1,4 @@
+#!/bin/bash
+
+FILE=$(ls ~/Wallpapers | shuf -n 1)
+feh --bg-fill ~/Wallpapers/$FILE
