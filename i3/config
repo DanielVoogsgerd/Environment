@@ -199,10 +199,8 @@ exec nm-applet
 
 # Custom additional configuration
 # dynamic tagging feature
-#bindsym $mod+t exec ~/.i3/get_workspace_options.py | dmenu -b | ~/.i3/go_to_workspace.py
-bindsym $mod+Shift+t exec ~/.i3/get_workspace_options.py | rofi -dmenu -p "Switch workspace" -b -i | ~/.i3/move_to_workspace.py
-
-bindsym $mod+n exec dmenu -b -i | ~/.i3/rename_workspace.py
+bindsym $mod+Shift+t exec ~/.i3/get_workspace_options.py | dmenu -i -p "Switch workspace" | ~/.i3/move_to_workspace.py
+bindsym $mod+n exec cat ~/.i3/workspacenames | dmenu -i -p 'Rename workspace' | ~/.i3/rename_workspace.py
 
 exec xfce4-volumed-pulse
 
