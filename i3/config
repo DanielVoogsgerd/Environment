@@ -41,6 +41,12 @@ bindsym $mod+shift+d exec export | xmessage -file -
 bindsym $mod+shift+p exec drandr
 bindsym $mod+i exec dacaur
 
+# FN-keys
+bindsym XF86AudioLowerVolume exec amixer sset Master 5%-
+bindsym XF86AudioRaiseVolume exec amixer sset Master 5%+
+bindsym XF86AudioMute exec amixer -D pulse set Master 1+ toggle
+
+
 # There also is the (new) i3-dmenu-desktop which only displays applications
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
 # installed.
@@ -203,8 +209,6 @@ exec nm-applet
 bindsym $mod+Shift+t exec ~/.i3/get_workspace_options.py | rofi -dmenu -p "Switch workspace" -b -i | ~/.i3/move_to_workspace.py
 
 bindsym $mod+n exec dmenu -b -i | ~/.i3/rename_workspace.py
-
-exec xfce4-volumed-pulse
 
 bindsym $mod+o exec lock
 bindsym Print exec teiler
