@@ -22,6 +22,7 @@ Plugin 'Rstacruz/Sparkup', {'rtp': 'vim/'}
 Plugin 'Sickill/Vim-Monokai'
 Plugin 'TPope/Vim-Dispatch'
 Plugin 'TPope/Vim-Fugitive'
+Plugin 'TPope/Vim-Git'
 Plugin 'TPope/Vim-Repeat'
 Plugin 'TPope/Vim-Surround'
 Plugin 'Trusktr/Seti.vim'
