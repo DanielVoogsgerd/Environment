@@ -117,6 +117,8 @@ bindsym $mod+Shift+9 move container to workspace number 9
 bindsym $mod+Shift+0 move container to workspace number 10
 bindsym $mod+Shift+minus move scratchpad
 
+for_window [class="^.*"] border pixel 5
+
 for_window [class="Gtkdialog"] floating enable
 for_window [class="Gnome-control-center"] floating enable
 for_window [class="Firefox" window_role="Preferences"] floating enable
@@ -214,3 +216,9 @@ client.focused #0088CC #0088CC #ffffff #dddddd
 client.focused_inactive #333333 #333333 #ffffff #292d2e
 client.unfocused #333333 #333333 #FFFFFF #292d2e
 client.urgent #2f343a #900000 #ffffff #900000
+
+# i3 gaps
+gaps inner 20
+gaps outer 20
+smart_gaps on
+smart_borders on
