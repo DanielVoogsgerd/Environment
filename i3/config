@@ -37,7 +37,6 @@ bindsym $mod+t exec i3_switch_workspace
 bindsym $mod+g exec search
 bindsym $mod+b exec bookmark
 bindsym $mod+shift+d exec export | xmessage -file -
-bindsym $mod+shift+p exec drandr
 bindsym $mod+i exec dacaur
 
 # FN-keys
