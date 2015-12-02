@@ -1,0 +1,13 @@
+[Unit]
+Description=Telegram
+Documentation=
+Requires=
+
+[Service]
+Type=simple
+ExecStart=/opt/daniel/telegram/Telegram
+Environment="DISPLAY=:0"
+Restart=always
+
+[Install]
+WantedBy=default.target
