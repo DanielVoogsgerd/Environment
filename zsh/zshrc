@@ -9,6 +9,8 @@ cdir=$ENVIRONMENT/.cdir
 export PATH="$PATH:$ENVIRONMENT/bin:$HOME/.composer/vendor/bin:./vendor/bin"
 export OS=$(lsb_release -si)
 
+export USERRUNDIR="/run/user/$(id -u)"
+
 function shell_log {
 	if [[ "$USER" != 'root' ]] || [[ $DEBUG == true ]]; then
 		echo $@
