@@ -243,3 +243,10 @@ gaps inner 20
 gaps outer 20
 smart_gaps on
 smart_borders on
+
+
+# Launching some stuff
+# Set displays
+exec_always --no-startup-id xrandr --output DP1 --auto --primary --output eDP1 --off --output HDMI2 --auto --right-of DP1
+# Setting wallpaper
+exec_always --no-startup-id feh --bg-fill /home/daniel/Wallpapers/yosemite.jpg
