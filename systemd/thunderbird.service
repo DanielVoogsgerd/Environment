@@ -1,0 +1,13 @@
+[Unit]
+Description=Thunderbird
+Documentation=
+Requires=
+
+[Service]
+Type=simple
+ExecStart=/usr/local/bin/thunderbird
+Environment="DISPLAY=:0"
+Restart=always
+
+[Install]
+WantedBy=default.target

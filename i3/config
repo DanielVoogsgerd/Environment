@@ -99,7 +99,7 @@ set $workspace1 "1 "
 set $workspace2 "2 "
 set $workspace3 "3 "
 set $workspace4 "4 "
-set $workspace5 "5 "
+set $workspace5 "5 "
 set $workspace6 "6 "
 set $workspace7 "7 "
 set $workspace8 "8 "
@@ -138,6 +138,7 @@ assign [class="Telegram"] $workspace9
 assign [class="google-chrome" window_role="pop-up" title="* Google Play Music"] $workspace10
 assign [class="google-chrome" window_role="pop-up" title="WhatsApp Web"] $workspace9
 assign [class="google-chrome" window_role="app" title="Hangouts - *"] $workspace9
+assign [class="Thunderbird"] $workspace5
 
 workspace $workspace8 output HDMI2
 workspace $workspace9 output HDMI2

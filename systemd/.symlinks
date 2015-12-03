@@ -4,3 +4,4 @@ hexchat.service => ~/.config/systemd/user/hexchat.service
 rescuetime.service => ~/.config/systemd/user/rescuetime.service
 telegram.service => ~/.config/systemd/user/telegram.service
 tmux.service => ~/.config/systemd/user/tmux.service
+thunderbird.service => ~/.config/systemd/user/thunderbird.service
