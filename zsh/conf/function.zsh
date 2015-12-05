@@ -114,6 +114,10 @@ function bak {
 
 function edit {
 	FILE=$1
+	if [ ! -f "$FILE" ]; then
+		echo "File does not exist"
+		return 1
+	fi
 	if [ -w "$FILE" ]; then
 		echo "Write permission is granted on $FILE"
 		if hash "$VISUAL" 2>/dev/null; then
