@@ -213,12 +213,12 @@ smart_gaps on
 smart_borders on
 
 
-# Launching some stuff
+# Launching some stuff (I need to abstract this to systemd)
 # Set displays
 exec_always --no-startup-id xrandr --output DP1 --auto --primary --output eDP1 --off --output HDMI2 --auto --right-of DP1
 
 # Launching networkmanager-applet
 exec nm-applet
-
+exec dunst
 # Setting wallpaper
 exec_always --no-startup-id feh --bg-fill /home/daniel/Wallpapers/yosemite.jpg
