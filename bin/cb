@@ -1,7 +1,5 @@
 #!/bin/zsh
 
-echo "$_fmt_green" > test
-
 if ! type xclip > /dev/null 2>&1
 then
 	echo -e "$_warning_col""You must have the 'xclip' program installed.$_normal_col"
