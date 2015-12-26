@@ -8,6 +8,9 @@ function fuck {
     if [[ "$1" == "you" ]]; then
         shift
         pkill -9 "$@"
+    elif [[ "$1" == "of" ]]; then
+        shift
+        pkill -9 "$@"
     else
         echo "Fuck who??"
     fi
