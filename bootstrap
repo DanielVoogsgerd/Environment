@@ -1,0 +1,21 @@
+#!/bin/sh
+
+# Exit if anything goes wrong
+set -e
+
+# TODO: Make this work for Arch aswell
+echo "Checking for missing dependencies"
+# I need your password to install git and zsh
+if ! hash git 2>/dev/null; then
+	echo "Installing missing dependency git"
+	sudo apt-get install git
+fi
+
+if ! hash zsh 2>/dev/null; then
+	echo "Installing missing dependency git"
+	sudo apt-get install zsh
+fi
+
+echo "Installing/Updating submodules"
+git submodule update --init
+

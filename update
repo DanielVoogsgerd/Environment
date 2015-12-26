@@ -1,0 +1,10 @@
+#!/bin/sh
+
+# Exit if something goes wrong
+set -e
+
+git submodule update --init
+
+./link
+
+# Magic
