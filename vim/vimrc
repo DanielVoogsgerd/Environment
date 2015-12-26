@@ -50,6 +50,10 @@ syntax on
 set background=dark
 colorscheme seti
 
+" Make the background transparent
+hi Normal ctermbg=none
+hi NonText ctermbg=none
+
 " Couple settings
 set number
 set relativenumber
