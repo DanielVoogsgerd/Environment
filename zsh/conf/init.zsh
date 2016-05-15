@@ -1,6 +1,6 @@
 if [ -f $HOME/.nvm/nvm.sh ]; then
     source $HOME/.nvm/nvm.sh
 fi
-. $ENVIRONMENT/zsh/z/z.sh
-
+source $ENVIRONMENT/zsh/fasd/fasd
+eval "$(fasd --init auto)"
 #swapcaps
