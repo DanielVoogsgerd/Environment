@@ -54,7 +54,7 @@ function gen_clc() {
 clc_default="004"
 clc_name="011"
 clc_hostname="005"
-clc_path="004"
+clc_path="027"
 clc_reset="$reset_color"
 clc_end="015"
 
