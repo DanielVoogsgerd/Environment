@@ -45,6 +45,9 @@ alias todo="cliist"
 alias chmox="chmod +x"
 alias ctl="systemctl"
 
+# And some fasd aliases
+function ef { edit `f $1` }
+
 
 # Conserve directories
 alias conserveDir="pwd>$cdir"

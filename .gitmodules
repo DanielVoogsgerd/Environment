@@ -2,10 +2,6 @@
 	path = zsh/vcs
 	url = https://github.com/yonchu/zsh-vcs-prompt.git
 
-[submodule "z"]
-	path = zsh/z
-	url = https://github.com/rupa/z.git
-
 [submodule "vundle"]
 	path = vim/vim/bundle/vundle
 	url = https://github.com/gmarik/vundle.git
