@@ -300,3 +300,12 @@ function build {
 function diff {
 	git diff --no-index -- $@
 }
+
+function certinfo {
+	local ext=$(echo $1 | sed 's/.*\.//')
+	local format="pem"
+	if [ $ext = "cer" ]; then
+		local format="der"
+	fi
+	openssl x509 -in $1 -inform $format -noout -text
+}
