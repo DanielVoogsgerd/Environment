@@ -295,3 +295,8 @@ function build {
 		ino build
 	fi
 }
+
+# Function works better than alias to fool autocomplete
+function diff {
+	git diff --no-index -- $@
+}
