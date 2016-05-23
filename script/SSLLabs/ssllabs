@@ -1,6 +1,7 @@
 #!/usr/bin/python2
 import ssllabsscanner as sslscan
 import argparse
+import sys
 
 parser = argparse.ArgumentParser(description='Run tests on SSLLabs')
 parser.add_argument('Servername', type=str, help='Server you\'d like to run the test on')
@@ -12,6 +13,11 @@ if args.new:
     scan = sslscan.newScan(args.Servername)
 else:
     scan = sslscan.resultsFromCache(args.Servername)
+
+if 'ready' not in scan or 'endpoints' not in scan:
+    print('Trouble with the test; are you sure already a scan exists?')
+    sys.exit(1)
+
 
 endpoint = scan['endpoints'][0]
 
