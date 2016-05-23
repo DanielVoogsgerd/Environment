@@ -1,0 +1,39 @@
+#!/usr/bin/python2
+import ssllabsscanner as sslscan
+import argparse
+
+parser = argparse.ArgumentParser(description='Run tests on SSLLabs')
+parser.add_argument('Servername', type=str, help='Server you\'d like to run the test on')
+parser.add_argument('--new', action='store_true', help='Run a new test')
+
+args = parser.parse_args();
+
+if args.new:
+    scan = sslscan.newScan(args.Servername)
+else:
+    scan = sslscan.resultsFromCache(args.Servername)
+
+endpoint = scan['endpoints'][0]
+
+grade = endpoint['grade']
+serverName = endpoint['serverName']
+hasWarnings = endpoint['hasWarnings']
+
+print("serverName: " + serverName)
+print("Grade: " + grade)
+
+if(hasWarnings):
+    print('Some warnings were thrown for this domain')
+else:
+    print('No warnings were thrown for this domain')
+
+print('Issues during handshake simulations')
+fails = filter(lambda result: result['errorCode'] == 1, endpoint['details']['sims']['results'])
+if len(fails) == 0:
+    print('No issues')
+for sim in fails:
+    if 'platform' in sim['client']:
+        print("Name: {name}, Version: {version}, Platform: {platform}".format(**sim['client']))
+    else:
+        print("Name: {name}, Version: {version}".format(**sim['client']))
+
