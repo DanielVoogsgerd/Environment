@@ -16,9 +16,12 @@ Plugin 'ChrisKempson/Base16-vim'
 Plugin 'FuzzyFinder'
 Plugin 'Godlygeek/Tabular'
 Plugin 'L9'
+Plugin 'Leafgarland/Typescript-Vim'
 Plugin 'Lokaltog/Vim-Easymotion'
+Plugin 'Rodjek/Vim-Puppet'
 Plugin 'Potatoesmaster/i3-Vim-Syntax'
 Plugin 'Rstacruz/Sparkup', {'rtp': 'vim/'}
+Plugin 'Scrooloose/Syntastic'
 Plugin 'Sickill/Vim-Monokai'
 Plugin 'TPope/Vim-Dispatch'
 Plugin 'TPope/Vim-Fugitive'
@@ -27,9 +30,12 @@ Plugin 'TPope/Vim-Repeat'
 Plugin 'TPope/Vim-Sensible'
 Plugin 'TPope/Vim-Surround'
 Plugin 'Trusktr/Seti.vim'
+Plugin 'kien/ctrlp.vim'
+Plugin 'wookiehangover/jshint.vim'
 
 " Syntax plugins
 Plugin 'NGiNX.vim'
+Plugin 'yeahnoob/icinga2-vim'
 
 call vundle#end()
 " End Plugins
@@ -163,3 +169,13 @@ function! ShowDigraphs ()
 endfunction
 
 highlight NonText ctermbg=none
+
+" Syntastic
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
