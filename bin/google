@@ -2,6 +2,11 @@
 DMENU='dmenu_wrapper -p Google -i'
 
 GS=$(echo -n "" | $DMENU $*)
+if [[ $GS == '' ]]; then
+	echo "No query provided"
+	exit 1
+fi
+
 URL="http://www.google.com/search?q=%s"
 LOC="${URL/\%s/$GS}"
 
