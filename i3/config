@@ -15,7 +15,7 @@ bindsym $mod+Tab exec rofi -show window
 bindsym $mod+p exec i3-dmenu-desktop --dmenu="dmenu -p 'Launch' -i -fn 'SFNS Display 10'" --entry-type="name"
 bindsym $mod+shift+p exec rofi -show run
 bindsym $mod+t exec i3_switch_workspace
-bindsym $mod+g exec search
+bindsym $mod+g exec google
 bindsym $mod+b exec bookmark
 bindsym $mod+shift+d exec export | xmessage -file -
 bindsym $mod+i exec dacaur

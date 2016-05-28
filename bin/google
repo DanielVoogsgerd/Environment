@@ -1,0 +1,8 @@
+#!/bin/bash
+DMENU='dmenu_wrapper -p Google -i'
+
+GS=$(echo -n "" | $DMENU $*)
+URL="http://www.google.com/search?q=%s"
+LOC="${URL/\%s/$GS}"
+
+xdg-open "$LOC"
