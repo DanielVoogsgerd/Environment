@@ -181,16 +181,18 @@ mode "Resize" {
 bindsym $mod+r mode "Resize"
 
 bar {
-   #   status_command i3status --config ~/.i3/status.conf
+	#   status_command i3status --config ~/.i3/status.conf
+	i3bar_command i3bar -t 
     status_command i3blocks -c ~/.i3/i3blocks.conf
+	font pango: SFNS Display 10
     colors {
-        separator  #37474F
-        background #37474F
-        statusline #0088CC
-        focused_workspace  #00B0FF #00B0FF #FFFFFF
-        active_workspace   #333333 #333333 #FFFFFF
-        inactive_workspace #37474f #37474f #FFFFFF
-        urgent_workspace   #ff1744 #ff1744 #FFFFFF
+        separator  #37474F00
+        background #37474F00
+        statusline #0088CC00
+        focused_workspace  #00B0FF00 #00B0FF00 #37474F
+        active_workspace   #4FC3F700 #4FC3F700 #78909C
+        inactive_workspace #37474f00 #37474f00 #FFFFFF
+        urgent_workspace   #ff1744   #ff1744   #FFFFFF
     }
 }
 
