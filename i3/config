@@ -1,4 +1,3 @@
-
 set $mod Mod4
 
 font pango: SFNS Display 10
@@ -11,14 +10,13 @@ bindsym $mod+Return exec i3-sensible-terminal
 bindsym $mod+Shift+q kill
 
 # Several dmenu-esque applications
-bindsym $mod+Tab exec rofi -show window
-bindsym $mod+p exec i3-dmenu-desktop --dmenu="dmenu -p 'Launch' -i -fn 'SFNS Display 10'" --entry-type="name"
-bindsym $mod+shift+p exec rofi -show run
+bindsym $mod+p exec i3-dmenu-desktop --dmenu="dmenu_wrapper -p 'Launch'" --entry-type="name"
 bindsym $mod+t exec i3_switch_workspace
 bindsym $mod+g exec google
 bindsym $mod+b exec bookmark
 bindsym $mod+shift+d exec export | xmessage -file -
-bindsym $mod+i exec dacaur
+bindsym $mod+c exec campussearch
+bindsym $mod+x [urgent=latest] focus
 
 # FN-keys
 bindsym XF86AudioLowerVolume exec amixer sset Master 5%-
@@ -104,16 +102,13 @@ bindsym $mod+Shift+minus move scratchpad
 
 assign [class="Hexchat"] $workspace9
 assign [class="Telegram"] $workspace9
-assign [class="google-chrome" window_role="pop-up" title="* Google Play Music"] $workspace10
-assign [class="google-chrome" window_role="pop-up" title="WhatsApp Web"] $workspace9
-assign [class="google-chrome" window_role="app" title="Hangouts - *"] $workspace9
 assign [class="Thunderbird"] $workspace5
 
 workspace $workspace8 output HDMI2
 workspace $workspace9 output HDMI2
 workspace $workspace10 output HDMI2
 
-for_window [class="^.*"] border pixel 5
+for_window [class="^.*"] border pixel 3
 
 # Some windows should not be tiled (Mainly dialogs)
 for_window [class="Gtkdialog"] floating enable
@@ -142,6 +137,8 @@ for_window [class="Google-chrome*" title="Select Image - *"] floating enable
 for_window [class="Qt4-ssh-askpass"] floating enable
 for_window [class="Gpick"] floating enable; focus mode_toggle
 for_window [instance="soffice"] floating enable
+for_window [class="dolphin" title="^Copying"] floating enable
+
 
 # reload/restart the configuration file
 bindsym $mod+Shift+c reload
@@ -198,27 +195,26 @@ bar {
 }
 
 bindsym $mod+o exec lock
-bindsym Print exec teiler
+bindsym Print exec screenshottool
 
 hide_edge_borders both
-client.focused #00B0FF #00B0FF #ffffff #00B0FF
+client.focused          #00B0FF #00B0FF #ffffff #00B0FF
 client.focused_inactive #B3E5FC #B3E5FC #ffffff #B3E5FC
-client.unfocused #455A64 #455A64 #FFFFFF #292d2e
-client.urgent #ff1744 #ff1744 #ffffff #ff1744
+client.unfocused        #455A64 #455A64 #FFFFFF #292d2e
+client.urgent           #ff1744 #ff1744 #ffffff #ff1744
 
 # i3 gaps
 gaps inner 20
-gaps outer 20
+gaps outer 0
 smart_gaps on
 smart_borders on
 
 
 # Launching some stuff (I need to abstract this to systemd)
 # Set displays
-exec_always --no-startup-id xrandr --output DP1 --auto --primary --output eDP1 --off --output HDMI2 --auto --right-of DP1
+#exec_always --no-startup-id xrandr --output DP1 --auto --primary --output eDP1 --off --output HDMI2 --auto --left-of DP1
 
 # Launching networkmanager-applet
 exec nm-applet
-exec dunst
 # Setting wallpaper
-exec_always --no-startup-id feh --bg-fill /home/daniel/Wallpapers/yosemite.jpg
+exec_always --no-startup-id DISPLAY=:0 /usr/bin/feh --bg-fill /home/daniel/Wallpapers/reflections.png
