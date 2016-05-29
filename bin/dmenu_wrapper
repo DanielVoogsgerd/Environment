@@ -1,0 +1,2 @@
+#!/bin/sh
+/usr/bin/dmenu -i -fn 'SFNS Display-11' -nb '#37474F' -sb '#00B0FF' -nf '#FFFFFF' $@
