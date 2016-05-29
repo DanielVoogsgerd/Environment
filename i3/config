@@ -187,13 +187,13 @@ bar {
    #   status_command i3status --config ~/.i3/status.conf
     status_command i3blocks -c ~/.i3/i3blocks.conf
     colors {
-        separator  #444444
-        background #222222
+        separator  #37474F
+        background #37474F
         statusline #0088CC
-        focused_workspace  #0088CC #0088CC #FFFFFF
+        focused_workspace  #00B0FF #00B0FF #FFFFFF
         active_workspace   #333333 #333333 #FFFFFF
-        inactive_workspace #222222 #222222 #FFFFFF
-        urgent_workspace   #cc1800 #cc1800 #FFFFFF
+        inactive_workspace #37474f #37474f #FFFFFF
+        urgent_workspace   #ff1744 #ff1744 #FFFFFF
     }
 }
 
@@ -201,10 +201,10 @@ bindsym $mod+o exec lock
 bindsym Print exec teiler
 
 hide_edge_borders both
-client.focused #0088CC #0088CC #ffffff #dddddd
-client.focused_inactive #333333 #333333 #ffffff #292d2e
-client.unfocused #333333 #333333 #FFFFFF #292d2e
-client.urgent #2f343a #900000 #ffffff #900000
+client.focused #00B0FF #00B0FF #ffffff #00B0FF
+client.focused_inactive #B3E5FC #B3E5FC #ffffff #B3E5FC
+client.unfocused #455A64 #455A64 #FFFFFF #292d2e
+client.urgent #ff1744 #ff1744 #ffffff #ff1744
 
 # i3 gaps
 gaps inner 20
