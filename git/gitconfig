@@ -33,6 +33,10 @@
 	# Add some hooks by default
 	templatedir = ~/Environment/git/templates
 
+
+[grep]
+	lineNumber = true
+
 [alias]
 	co = checkout
 	ci = commit
