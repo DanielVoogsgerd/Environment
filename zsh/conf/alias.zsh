@@ -44,6 +44,7 @@ alias open="xdg-open"
 alias todo="cliist"
 alias chmox="chmod +x"
 alias ctl="systemctl"
+alias cert="sudo certbot certonly -a webroot --webroot-path=/srv/www/letsencrypt"
 
 # And some fasd aliases
 function ef { edit `f $1` }
