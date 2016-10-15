@@ -16,18 +16,21 @@
 
 load="$(cut -d ' ' -f1 /proc/loadavg)"
 cpus="$(nproc)"
+mem=$(free -h | grep Mem | awk '{print $4}')
 
-# full text
-echo "$load"
+case $BLOCK_BUTTON in
+	1) output=$mem;;
+	*) output=$load;;
+esac
 
-# short text
-echo "$load"
+echo $output
+echo $output
 
 # color if load is too high
 awk -v cpus=$cpus -v cpuload=$load '
     BEGIN {
         if (cpus <= cpuload) {
-            print "#FF0000";
+            print "#ff1744";
             exit 33;
         }
     }
