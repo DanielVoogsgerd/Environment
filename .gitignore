@@ -2,6 +2,7 @@
 .*.swp
 *.pyc
 
+node_modules
 
 zsh/cache/*
 
