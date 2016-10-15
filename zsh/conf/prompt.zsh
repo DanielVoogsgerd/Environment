@@ -64,7 +64,7 @@ elif [[ "$USER" == "root" ]]; then
     clc_name="001"
 fi
 
-if [[ "$SSH_CONNECTED_HOST" == ":0" || "$SSH_CONNECTED_HOST" == ":0.0" ]]; then
+if [[ -z "$SSH_CONNECTED" ]]; then
 	clc_hostname="005"
 else
 	clc_hostname="009"
@@ -84,7 +84,7 @@ function prompt() {
 		PROMPT+="$PCLC_NAME%n"
 	fi
 
-	if [[ "$SSH_CONNECTED_HOST" != ":0" && "$SSH_CONNECTED_HOST" != ":0.0" && -z "$TMUX" ]]; then
+	if [[ -n "$SSH_CONNECTION" && -z "$TMUX" ]]; then
 		PROMPT+="$PCLC_DEFAULT@$PCLC_HOSTNAME%m%f "
 	fi
 
