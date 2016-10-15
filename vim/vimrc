@@ -4,14 +4,18 @@ filetype off                   " required!
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
+set encoding=utf8
+
 " let Vundle manage Vundle
 " required!
 Plugin 'Gmarik/Vundle.vim'
 
 " Personal Plugins
+Plugin 'airblade/vim-gitgutter'
 Plugin 'Altercation/Vim-Colors-Solarized'
 Plugin 'Atweiden/Vim-Hudigraphs'
 Plugin 'Bling/Vim-Airline'
+Plugin 'Chrisbra/Unicode.vim'
 Plugin 'ChrisKempson/Base16-vim'
 Plugin 'FuzzyFinder'
 Plugin 'Godlygeek/Tabular'
@@ -22,16 +26,19 @@ Plugin 'Rodjek/Vim-Puppet'
 Plugin 'Potatoesmaster/i3-Vim-Syntax'
 Plugin 'Rstacruz/Sparkup', {'rtp': 'vim/'}
 Plugin 'Scrooloose/Syntastic'
+Plugin 'Scrooloose/NERDTree'
+Plugin 'Sheerun/Vim-Polyglot'
 Plugin 'Sickill/Vim-Monokai'
 Plugin 'TPope/Vim-Dispatch'
 Plugin 'TPope/Vim-Fugitive'
 Plugin 'TPope/Vim-Git'
+Plugin 'ryanoasis/vim-devicons'
 Plugin 'TPope/Vim-Repeat'
 Plugin 'TPope/Vim-Sensible'
 Plugin 'TPope/Vim-Surround'
 Plugin 'Trusktr/Seti.vim'
-Plugin 'kien/ctrlp.vim'
-Plugin 'wookiehangover/jshint.vim'
+Plugin 'ctrlpvim/ctrlp.vim'
+
 
 " Syntax plugins
 Plugin 'NGiNX.vim'
@@ -49,6 +56,9 @@ set t_Co=256
 set laststatus=2
 " let g:Powerline_symbols = 'fancy'
 let g:airline_powerline_fonts = 1
+" Showing the mode in the command window is quite redundant with powerline
+set noshowmode
+
 
 " Visual settings
 hi clear
@@ -117,6 +127,9 @@ nmap <leader>f :FufFileWithCurrentBufferDir<CR>
 nmap <leader>b :FufBuffer<CR>
 nmap <leader>t :FufTaggedFile<CR>
 
+" NERDTree keybindings
+nmap <leader>1 :NERDTree<CR>
+
 " Git bindings
 nnoremap <leader>ga :Git add %:p<CR><CR>
 nnoremap <leader>gb :Gblame<CR>
@@ -127,6 +140,9 @@ nnoremap <leader>gc :Gcommit -q<CR>
 nnoremap <leader>gps :Dispatch! git push<CR>
 nnoremap <leader>gpl :Dispatch! git pull<CR>
 nnoremap <leader>go :Copen<CR>
+nnoremap <leader>gg :GitGutterSignsToggle<CR>
+
+let g:gitgutter_map_keys = 0
 
 " Quick alignment with Tabular
 nmap <Leader>a= :Tabularize /=<CR>
@@ -182,7 +198,9 @@ set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 
+let g:syntastic_javascript_checkers = ['eslint']
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
+let g:syntastic_loc_list_height = 3
