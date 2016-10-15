@@ -30,8 +30,5 @@ export JAVA_HOME="/opt/java"
 # XDG Settings
 export XDG_CONFIG_HOME="$HOME/.config"
 
-# SSH Agent
-export SSH_AUTH_SOCK="$USERRUNDIR/ssh-agent.socket"
-
 # Easy cding in projects
 export CDPATH="$HOME/Projects"
