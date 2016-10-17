@@ -117,11 +117,7 @@ function bak {
 
 function edit {
 	FILE=$1
-	if [ ! -f "$FILE" ]; then
-		echo "File does not exist"
-		return 1
-	fi
-	if [ -w "$FILE" ]; then
+	if [ -w "$FILE" ] || [ -w "$(dirname $FILE)" ]; then
 		echo "Write permission is granted on $FILE"
 		if hash "$VISUAL" 2>/dev/null; then
 			$VISUAL "$FILE"
@@ -131,11 +127,10 @@ function edit {
 			echo "The specified editors couldn't be found"
 			return 1
 		fi
-
 	else
 		echo "Write permission is NOT granted on $FILE"
 		echo "Opening using sudoedit"
-		notify-send "No write permission. Opening using sudo"
+		sleep 0.5
 		sudoedit $FILE
     fi
 }
