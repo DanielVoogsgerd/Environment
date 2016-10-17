@@ -28,6 +28,7 @@ function title() {
 # precmd is called just before the prompt is printed
 function precmd() {
     title "zsh" "%m:%55<...<%~"
+	commandcount=$(wc -l ~/.zhistory)
 }
 
 # preexec is called just before any command line is executed
@@ -65,5 +66,8 @@ function prompt() {
 	fi
 
 	PROMPT+="$PCLC_PATH%~%f"'$(vcs_super_info_wrapper)'"$PCLC_END "'$(shell_icon)'" "
+
+	RPROMPT="%{%F{004}%}[%{%F{012}%}"'$(cat ~/.zhistory | wc -l)'"%{%F{004}%}]%{%F{004}%}[%(?,%{%F{012}%}%?,%{%F{001}%}%?)%{%F{004}%}]"
+	RPROMPT+='%F{004}[%F{012}%*%F{004}]%f'
 }
 prompt
