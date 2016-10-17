@@ -1,13 +1,11 @@
 #!/bin/bash
-vol=$(amixer get Master | grep 'Front Left:' | cut -d ' ' -f 7 | tr -d     '[\[\]]%')
-
-echo "$vol%"
+echo "$(pamixer --get-volume)%"
 
 case $BLOCK_BUTTON in
 	1) pavucontrol > /dev/null;;
-	2) amixer -q sset Master toggle;;
-	4) amixer -q sset Master 5%+ unmute;;
-	5) amixer -q sset Master 5%- unmute;;
+	2) pamixer -t;;
+	4) pamixer -i 5;;
+	5) pamixer -d 5;;
 esac
 
 if [ $vol -gt 100 ]; then
