@@ -13,8 +13,6 @@ bindsym $mod+Shift+q kill
 
 # Several dmenu-esque applications
 bindsym $mod+p exec i3-dmenu-desktop --dmenu="dmenu_wrapper -p 'Launch'" --entry-type="name"
-bindsym $mod+g exec google
-bindsym $mod+b exec bookmark
 bindsym $mod+shift+d exec export | xmessage -file -
 bindsym $mod+c exec campussearch
 bindsym $mod+x [urgent=latest] focus
