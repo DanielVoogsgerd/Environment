@@ -220,4 +220,4 @@ smart_borders on
 # Launching networkmanager-applet
 exec nm-applet
 # Setting wallpaper
-exec_always --no-startup-id DISPLAY=:0 /usr/bin/feh --bg-fill /home/daniel/Wallpapers/reflections.png
+exec_always --no-startup-id DISPLAY=:0 randwallpaper
