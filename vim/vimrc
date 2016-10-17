@@ -113,10 +113,10 @@ vmap <leader>so :sort u<CR>
 
 " Fast saves
 nmap <leader><leader>w :w!<cr>
-nmap <leader>p o<ESC>p
 
 " I paste a lot from my X11 clipboard
-nnoremap <leader>v "+p
+noremap <leader>v "+p
+noremap <leader>c "+y
 
 " With a map leader it's possible to do extra key combinations
 " Easymotion
