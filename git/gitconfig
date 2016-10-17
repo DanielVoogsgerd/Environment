@@ -51,6 +51,7 @@
 	hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
 	lol = log --graph --oneline --decorate
 	type = cat-file -t
+	staged = diff --staged
 
 	# Parts of Mathias Bynens config that seemed useful, but aren't fully encorporated in my workflow yet.
 	# View abbreviated SHA, description, and history graph of the latest 20 commits
