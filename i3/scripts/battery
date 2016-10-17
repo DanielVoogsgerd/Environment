@@ -4,7 +4,8 @@ if [ ! -e /sys/class/power_supply/BAT*/capacity ]; then
 fi
 
 if [ $(cat /sys/class/power_supply/BAT*/status) == "Charging" ]; then
-	echo "<span foreground="green"></span>"
+	echo "<span foreground='#4CAF50'></span>"
+	exit 0
 fi
 
 BAT=$(cat /sys/class/power_supply/BAT*/capacity)
