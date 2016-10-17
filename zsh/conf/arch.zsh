@@ -1,7 +1,6 @@
 #!/usr/bin/zsh
 
 if [[ "$OS" == "Arch" ]]; then
-    echo 'Wut'
     # Pacman alias examples
     alias pacupg='sudo pacman -Syu'     # Synchronize with repositories and then upgrade packages that are out of date on the local system.
     alias pacin='sudo pacman -S'        # Install specific package(s) from the repositories
