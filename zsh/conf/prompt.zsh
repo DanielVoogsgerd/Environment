@@ -10,7 +10,7 @@ PROMPT=$''
 setopt PROMPT_SUBST
 if [[ "$USER" == "root" ]]; then
     PROMPT+='%{%F{001}%}%n'
-elif [[ "$USER" == "daniel" ]]; then
+elif [[ "$USER" == "$username" ]]; then
     PROMPT+='%{%F{002}%}%n'
 else
     PROMPT+='%{%F{011}%}%n'
