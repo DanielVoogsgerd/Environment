@@ -25,7 +25,7 @@ bindsym XF86AudioRaiseVolume exec amixer sset Master 5%+
 bindsym XF86AudioMute exec amixer -D pulse set Master 1+ toggle
 
 # Automatically lock after 10 minutes
-exec xautolock -time 10 -locker 'lock'
+exec xautolock -time 10 -locker 'i3lock-fancy'
 
 # change focus; Shifted one from the default config to be compatible with vim.
 bindsym $mod+Left focus left
@@ -197,7 +197,7 @@ bar {
     }
 }
 
-bindsym $mod+o exec lock
+bindsym $mod+o exec i3lock-fancy
 bindsym Print exec screenshottool
 
 hide_edge_borders both
