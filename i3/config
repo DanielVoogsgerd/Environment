@@ -4,6 +4,8 @@ font pango: SFNS Display 10
 
 floating_modifier $mod
 
+focus_follows_mouse no
+
 bindsym $mod+Return exec i3-sensible-terminal
 
 # kill focused window
