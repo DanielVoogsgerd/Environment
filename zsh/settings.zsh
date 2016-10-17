@@ -32,3 +32,5 @@ export XDG_CONFIG_HOME="$HOME/.config"
 
 # Easy cding in projects
 export CDPATH="$HOME/Projects"
+
+export LESS="FRX"
