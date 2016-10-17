@@ -15,15 +15,6 @@ feh --bg-scale ~/Environment/wallpapers/arch2.png
 
 [[ -f ~/.Xresources ]] && xrdb -merge "${HOME}/.Xresources"
 
-# Start the SSH-agent
-eval $(ssh-agent)
-
 # Start the gnome keyring
 eval $(/usr/bin/gnome-keyring-daemon --replace --components=gpg,pkcs11,secrets,ssh)
 export SSH_ASKPASS SSH_AUTH_SOCK GPG_AGENT_INFO GNOME_KEYRING_CONTROL GNOME_KEYRING_PID
-
-# Swapcaps
-/usr/bin/setxkbmap -option 'ctrl:swapcaps'
-
-# I sure do like some compositing
-/usr/bin/xcompmgr -n &
