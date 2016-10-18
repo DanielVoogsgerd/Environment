@@ -23,7 +23,7 @@ export EDITOR="nano"
 export GIT_EDITOR="nano"
 export VISUAL="gedit"
 
-export LANG="en_GB.UTF-8"
+export LANG="en_US.UTF-8"
 export EDITOR VISUAL GIT_EDITOR
 
 # XDG Settings
