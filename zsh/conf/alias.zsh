@@ -29,13 +29,13 @@ alias "....."="cd ../../../../"
 alias "......"="cd ../../../../../"
 alias "......."="cd ../../../../../../"
 
-# Git aliasses
+# Application aliasses
 alias g="git"
+alias d="docker"
 
 # Really short aliases, for basic operations
 alias e="edit"
 alias t="tree"
-alias d="tree -d"
 alias n="touch"
 alias clip="xclip -sel clip"
 alias c='pygmentize -O style=monokai -f console256 -g'
