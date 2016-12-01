@@ -16,6 +16,7 @@ bindsym $mod+p exec i3-dmenu-desktop --dmenu="dmenu_wrapper -p 'Launch'" --entry
 bindsym $mod+shift+d exec export | xmessage -file -
 bindsym $mod+c exec campussearch
 bindsym $mod+x [urgent=latest] focus
+bindsym $mod+e exec nautilus
 
 # FN-keys
 bindsym XF86AudioLowerVolume exec amixer sset Master 5%-
@@ -47,7 +48,7 @@ bindsym $mod+f fullscreen
 # change container layout (stacked, tabbed, toggle split)
 bindsym $mod+s layout stacking
 bindsym $mod+w layout tabbed
-bindsym $mod+e layout toggle split
+bindsym $mod+t layout toggle split
 
 # toggle tiling / floating
 bindsym $mod+Shift+space floating toggle
@@ -210,12 +211,5 @@ gaps outer 0
 smart_gaps on
 smart_borders on
 
-
-# Launching some stuff (I need to abstract this to systemd)
-# Set displays
-#exec_always --no-startup-id xrandr --output DP1 --auto --primary --output eDP1 --off --output HDMI2 --auto --left-of DP1
-
-# Launching networkmanager-applet
-exec nm-applet
-# Setting wallpaper
 exec_always --no-startup-id DISPLAY=:0 randwallpaper
+exec_always --no-startup-id dbus-update-activation-environment --systemd DISPLAY
